@@ -1,11 +1,23 @@
 {
   "workflow": {
     "unique_name": "definition_workflow_01B6FFVAQBHGJ5NcfMIE0N2904zySf42ffY",
-    "name": "Copy-MSWindows_Manual",
-    "title": "Copy-MSWindows_Manual",
+    "name": "MSWindows_Automation Vinay",
+    "title": "MSWindows_Automation Vinay",
     "type": "generic.workflow",
     "base_type": "workflow",
     "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "C:\\PWS\\",
+          "scope": "input",
+          "name": "WorkingDirectory",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473",
+        "object_type": "variable_workflow"
+      },
       {
         "schema_id": "datatype.string",
         "properties": {
@@ -29,18 +41,6 @@
         },
         "unique_name": "variable_workflow_01BA2P17YUOWZ4OcoF8Q2H5chPS8qpPMvFE",
         "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "C:\\PWS\\",
-          "scope": "input",
-          "name": "WorkingDirectory",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473",
-        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -48,17 +48,14 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
-      "display_name": "Copy-MSWindows_Manual",
+      "display_name": "MSWindows_Automation Vinay",
       "runtime_user": {
         "override_target_runtime_user": false,
         "specify_on_workflow_start": false,
         "target_default": true
       },
       "target": {
-        "execute_on_target_group": false,
-        "execute_on_workflow_target": false,
-        "no_target": true,
-        "specify_on_workflow_start": false
+        "no_target": true
       }
     },
     "object_type": "definition_workflow",
@@ -158,6 +155,33 @@
                   "windows_script": "Set objShell = CreateObject(\"WScript.Shell\")\nSet exec = objShell.Exec(\"ipconfig /all\")\nCall WScript.StdOut.Write(exec.StdOut.ReadAll)"
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01BIDGERYBSJ32NJspe65V2MnWbIC90hUUh",
+                "name": "Execute Windows Script",
+                "title": "Execute Windows Script",
+                "type": "windows.execute_windows_script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Windows Script",
+                  "execute_remote_file": false,
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "script_arguments": [
+                    "C:/PWS"
+                  ],
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                  },
+                  "windows_script": "On Error Resume Next\nDim fso, folder, files, NewsFile,sFolder\n\nSet fso = CreateObject(\"Scripting.FileSystemObject\")\nsFolder = Wscript.Arguments.Item(0)\nIf sFolder = \"\" Then\nWscript.Echo \"No Folder parameter was passed\"\nWscript.Quit\nEnd If\nSet NewFile = fso.CreateTextFile(sFolder\u0026\"\\FileList.txt\", True)\nSet folder = fso.GetFolder(sFolder)\nSet files = folder.Files\n\nFor each folderIdx In files\nNewFile.WriteLine(folderIdx.Name)\nNext\nNewFile.Close"
+                },
+                "object_type": "definition_activity"
               }
             ]
           },
@@ -200,6 +224,35 @@
                 "object_type": "definition_activity"
               },
               {
+                "unique_name": "definition_activity_01BIF2LAI0IMU71ZRszzUoubmNebNbORjjZ",
+                "name": "Execute Powershell Script",
+                "title": "Execute Powershell Script",
+                "type": "windows.execute_powershell_script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Execute Powershell Script",
+                  "execute_remote_file": false,
+                  "powershell_script": "param([string] $dir = \"C:\\Temp\",\n[int32] $size = 20000)\n$files = Get-ChildItem $dir\nforeach ($file in $files)\n{\nif ($file.length -gt $size)\n{\nWrite-Output $file\n}\n}",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "script_arguments": [
+                    "C:\\windows 20000"
+                  ],
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "override_workflow_target_group_criteria": false,
+                    "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV",
+                    "use_workflow_target_group": false
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
                 "unique_name": "definition_activity_01B6FFWGLCRBV3cAKRgK703ZK7YWJYurZfH",
                 "name": "Execute Command",
                 "title": "Execute Command",
@@ -233,7 +286,7 @@
                   "continue_on_failure": true,
                   "display_name": "Execute Windows Script",
                   "execute_remote_file": true,
-                  "remote_file": "list.bat",
+                  "remote_file": "2.vbs C:/Windows",
                   "runtime_user": {
                     "override_target_runtime_user": false,
                     "target_default": true
@@ -288,6 +341,31 @@
                 "object_type": "definition_activity"
               },
               {
+                "unique_name": "definition_activity_01BIF44GRXRLR3RXALqGlGxpWPNVj3Cr3LL",
+                "name": "Execute Powershell Script",
+                "title": "Execute Powershell Script",
+                "type": "windows.execute_powershell_script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Powershell Script",
+                  "execute_remote_file": false,
+                  "powershell_script": "mkdirre test",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                  },
+                  "working_directory": "$workflow.definition_workflow_01B6FFVAQBHGJ5NcfMIE0N2904zySf42ffY.input.variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473$"
+                },
+                "object_type": "definition_activity"
+              },
+              {
                 "unique_name": "definition_activity_01BDPLYVFMLZK1RktMwvDSIuAVyRG1XWQEP",
                 "name": "Execute Command",
                 "title": "Execute Command",
@@ -311,7 +389,7 @@
                 "object_type": "definition_activity"
               },
               {
-                "unique_name": "definition_activity_01BDPLYWXNLVX4MKHvx95gISmKcZE8ddytD",
+                "unique_name": "definition_activity_01BHQ77OBNFC93PRGe2bfnGljLwX2db8aJI",
                 "name": "Execute Windows Script",
                 "title": "Execute Windows Script",
                 "type": "windows.execute_windows_script",
@@ -321,47 +399,7 @@
                   "continue_on_failure": true,
                   "display_name": "Execute Windows Script",
                   "execute_remote_file": true,
-                  "remote_file": "list12.bat",
-                  "runtime_user": {
-                    "override_target_runtime_user": false,
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "override_workflow_target": true,
-                    "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                  },
-                  "working_directory": "$workflow.definition_workflow_01B6FFVAQBHGJ5NcfMIE0N2904zySf42ffY.input.variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473$"
-                },
-                "object_type": "definition_activity"
-              }
-            ]
-          },
-          {
-            "unique_name": "definition_activity_01BDPPE2XHH5V4GQv5UcuFns81yNKAQeAZo",
-            "name": "Parallel Branch",
-            "title": "Parallel Branch",
-            "type": "logic.parallel_block",
-            "base_type": "activity",
-            "properties": {
-              "continue_on_failure": false,
-              "display_name": "Parallel Branch",
-              "skip_execution": false
-            },
-            "object_type": "definition_activity",
-            "actions": [
-              {
-                "unique_name": "definition_activity_01BDPPE7EJLCZ0P6NCDIecg70CIcdAGRAt5",
-                "name": "Execute Windows Script",
-                "title": "Execute Windows Script",
-                "type": "windows.execute_windows_script",
-                "base_type": "activity",
-                "properties": {
-                  "action_timeout": 180,
-                  "continue_on_failure": true,
-                  "display_name": "Execute Windows Script",
-                  "execute_remote_file": true,
-                  "remote_file": "1.bat",
+                  "remote_file": "list.vbs",
                   "runtime_user": {
                     "override_target_runtime_user": false,
                     "target_default": true
@@ -376,7 +414,7 @@
                 "object_type": "definition_activity"
               },
               {
-                "unique_name": "definition_activity_01BDPPN9V19V100XfZCVtABmgVZgQy0x7Gi",
+                "unique_name": "definition_activity_01BHQH02QZBP80x5hEtfB0HtRZqL1Ed28O3",
                 "name": "Execute Windows Script",
                 "title": "Execute Windows Script",
                 "type": "windows.execute_windows_script",
@@ -386,32 +424,7 @@
                   "continue_on_failure": true,
                   "display_name": "Execute Windows Script",
                   "execute_remote_file": true,
-                  "remote_file": "2.bat",
-                  "runtime_user": {
-                    "override_target_runtime_user": false,
-                    "target_default": true
-                  },
-                  "skip_execution": false,
-                  "target": {
-                    "override_workflow_target": true,
-                    "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                  },
-                  "working_directory": "$workflow.definition_workflow_01B6FFVAQBHGJ5NcfMIE0N2904zySf42ffY.input.variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473$"
-                },
-                "object_type": "definition_activity"
-              },
-              {
-                "unique_name": "definition_activity_01BDPPLU0KH8306sQTN915UGpWl4hBhmnLG",
-                "name": "Execute Windows Script",
-                "title": "Execute Windows Script",
-                "type": "windows.execute_windows_script",
-                "base_type": "activity",
-                "properties": {
-                  "action_timeout": 180,
-                  "continue_on_failure": true,
-                  "display_name": "Execute Windows Script",
-                  "execute_remote_file": true,
-                  "remote_file": "3.bat",
+                  "remote_file": "list.bat",
                   "runtime_user": {
                     "override_target_runtime_user": false,
                     "target_default": true
@@ -736,6 +749,138 @@
                     "object_type": "definition_activity"
                   },
                   {
+                    "unique_name": "definition_activity_01BGU3CNSTFKU2DINpSDt9STYVtv0JD9cEs",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "11/11/2019 11:41:13",
+                      "before_time": "11/12/2019 11:41:13",
+                      "continue_on_failure": true,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Warning"
+                      ],
+                      "event_computer_name": "po-w12r2-mysql.tidalsoft.local",
+                      "event_description": "Invalid Description",
+                      "event_number": 2147483712,
+                      "event_source": "AutoEnrollment",
+                      "log_name": "Application",
+                      "persist_output": true,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BGU492BDTNR3s5YaL70meWqEHYdADTlRE",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "11/11/2019 11:41:13",
+                      "before_time": "11/12/2019 11:41:13",
+                      "continue_on_failure": true,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Warning"
+                      ],
+                      "event_computer_name": "po-w12r2-mysql.tidalsoft.local",
+                      "event_description": "*",
+                      "event_number": 12,
+                      "event_source": "AutoEnrollment",
+                      "log_name": "Application",
+                      "persist_output": true,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BGU5CB7L86Z6wyb5UJlHQA1XP7BOp9ey0",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "12/11/2019 11:41:13",
+                      "before_time": "12/12/2019 11:41:13",
+                      "continue_on_failure": true,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Warning"
+                      ],
+                      "event_computer_name": "po-w12r2-mysql.tidalsoft.local",
+                      "event_description": "*",
+                      "event_number": 2147483712,
+                      "event_source": "AutoEnrollment",
+                      "log_name": "Application",
+                      "persist_output": true,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BGU65VXO50Y4fJUfYECrtSayBXJvuNMaF",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "11/11/2019 11:41:13",
+                      "before_time": "11/12/2019 11:41:13",
+                      "continue_on_failure": true,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Warning"
+                      ],
+                      "event_computer_name": "po-w12r2-mysql.tidalsoft.local",
+                      "event_description": "*",
+                      "event_number": 2147483712,
+                      "event_source": "AutoEnrollment",
+                      "log_name": "InValidLogName",
+                      "persist_output": true,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
                     "unique_name": "definition_activity_01B6HQ9H6BZUK5WASMmfg3R7NJQDFfpPxkj",
                     "name": "Query Windows Service",
                     "title": "Query Windows Service",
@@ -911,6 +1056,105 @@
                         "SuccessAudit"
                       ],
                       "log_name": "Securiity",
+                      "persist_output": true,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BGTU7I3A30U7GORw2IRx5rTollVlBCdz0",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "11/11/2019 11:41:13",
+                      "before_time": "11/12/2019 11:41:13",
+                      "continue_on_failure": true,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Warning"
+                      ],
+                      "event_computer_name": "po-w12r2-mysql.tidalsoft.local",
+                      "event_description": "The description*",
+                      "event_number": 2147483712,
+                      "event_source": "AutoEnrollment",
+                      "log_name": "Application",
+                      "persist_output": true,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BGU2IC74AR96l4QafjJ52Xl8xeoMuPhWz",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "11/11/2019 11:41:13",
+                      "before_time": "11/12/2019 11:41:13",
+                      "continue_on_failure": true,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Warning"
+                      ],
+                      "event_computer_name": "po-w12r2-mysql.tidalsoft.local",
+                      "event_description": "The description*",
+                      "event_number": 2147483712,
+                      "event_source": "InValid Event Source",
+                      "log_name": "Application",
+                      "persist_output": true,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BGU2SF305KW3vVVpQRSumfwIggEyg9vGB",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "11/11/2019 11:41:13",
+                      "before_time": "11/12/2019 11:41:13",
+                      "continue_on_failure": true,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Warning"
+                      ],
+                      "event_computer_name": "Invalid Computer Name",
+                      "event_description": "The description*",
+                      "event_number": 2147483712,
+                      "event_source": "AutoEnrollment",
+                      "log_name": "Application",
                       "persist_output": true,
                       "runtime_user": {
                         "override_target_runtime_user": false,
