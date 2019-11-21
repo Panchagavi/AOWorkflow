@@ -2315,7 +2315,7 @@
         ]
       },
       {
-        "unique_name": "definition_activity_01B6FG1D82PN6269zItqfZfSuhxzj4juaD4",
+        "unique_name": "definition_activity_01BO9YVR03JQ64bKOSmm7dcYLqzj5CIBpW3",
         "name": "Stop Process",
         "title": "Stop Process",
         "type": "windows.stop_windows_process",
@@ -2338,7 +2338,7 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01B6FG1ORRMHZ5jdqOriT2qa6Ahpkqtbm0c",
+        "unique_name": "definition_activity_01BO9YX4SGZSN5TPapChz5ohYnKeY6ZnlUQ",
         "name": "Uninstall Application",
         "title": "Uninstall Application",
         "type": "windows.uninstall_application",
@@ -2361,7 +2361,7 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01B6FG203VHPU0LNmyYdXORmwYB9atPorBx",
+        "unique_name": "definition_activity_01BO9YYRUZB2D2dnBUAPfafv6WzXef68d7q",
         "name": "Restart Server",
         "title": "Restart Server",
         "type": "windows.restart",
