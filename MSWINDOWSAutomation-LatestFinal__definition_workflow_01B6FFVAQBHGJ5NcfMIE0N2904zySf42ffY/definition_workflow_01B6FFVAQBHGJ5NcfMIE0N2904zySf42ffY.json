@@ -9,6 +9,18 @@
       {
         "schema_id": "datatype.string",
         "properties": {
+          "value": "C:\\PWS\\",
+          "scope": "input",
+          "name": "WorkingDirectory",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
           "value": "AODIR",
           "scope": "input",
           "name": "DirectoryName for Mkdir",
@@ -28,18 +40,6 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01BA2P17YUOWZ4OcoF8Q2H5chPS8qpPMvFE",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "C:\\PWS\\",
-          "scope": "input",
-          "name": "WorkingDirectory",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473",
         "object_type": "variable_workflow"
       }
     ],
@@ -848,6 +848,271 @@
                       }
                     },
                     "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B6HQ9KB2NSA3KeRIkvLgBsi8NkM5nmyxe",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCC",
+                      "registry_key": "\\Software\\Fonts",
+                      "registry_key_path": "\\Software\\Fonts",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "LogPixels"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSNS4JUUGQP2Ff2tii3iDSfPxmDf2E1vn",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": true,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCC",
+                      "registry_key": "\\Software\\Fonts",
+                      "registry_key_path": "\\Software\\Fonts",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B6FFYUB3TJ56sxx9TKt2J23tmJrj8TQBW",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCR",
+                      "registry_key": "._sln",
+                      "registry_key_path": "\\._sln",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "(Default)"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSNTQ5T7G3T4KZgGAghFTunfBJomeDMZL",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": true,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCR",
+                      "registry_key": "._sln",
+                      "registry_key_path": "\\._sln",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B6HQNDLCR8Q1dlivIpxILQlUf7HGAG3Z0",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCU",
+                      "registry_key": "\\AppEvents\\Schemes\\Apps\\.Default",
+                      "registry_key_path": "\\Control Panel\\Mouse",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "SmoothMouseXCurve"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSNV5THV57L16wdRcL1krZvR1xuQSIdjV",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": true,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCU",
+                      "registry_key": "\\AppEvents\\Schemes\\Apps\\.Default",
+                      "registry_key_path": "\\Control Panel\\Mouse",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B7AI96JKZNK0uK5eRiQN4pzIzAuThQMII",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": true,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKU",
+                      "registry_key": "S-1-5-18\\Control Panel\\Mouse",
+                      "registry_key_path": "\\S-1-5-18\\Control Panel\\Mouse",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSNVRJMPPZD6Oxfh0fY0BbuZnXZxuAw9l",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKU",
+                      "registry_key": "S-1-5-18\\Control Panel\\Mouse",
+                      "registry_key_path": "\\S-1-5-18\\Control Panel\\Mouse",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "SmoothMouseXCurve"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B6HQKS1BKTX6ZeE3mhoXhUvLbxQSvvE5Y",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKLM",
+                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
+                      "registry_key_path": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "OLEDB"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01B7AIAP0BC4O6mCr7Qb4AxzBc6nobYSB0z",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": true,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKLM",
+                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1123333",
+                      "registry_key_path": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
                   }
                 ]
               }
@@ -1035,7 +1300,61 @@
                     "object_type": "definition_activity"
                   },
                   {
-                    "unique_name": "definition_activity_01B6HQ9KB2NSA3KeRIkvLgBsi8NkM5nmyxe",
+                    "unique_name": "definition_activity_01B7AJE2L33062lOydHMFdq88YFRXEG5IQD",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKLM",
+                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
+                      "registry_key_path": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "OLEDB12333333"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSO4TSAH2OP7gaC75ZyN9IilfmWmbdwh4",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKLM",
+                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
+                      "registry_key_path": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home123223",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "OLEDB"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSNS0PXWIK64Sfq8ZqfCrAq9NI2bSCp7X",
                     "name": "Query Windows Registry",
                     "title": "Query Windows Registry",
                     "type": "windows.query_windows_registry",
@@ -1047,6 +1366,34 @@
                       "display_name": "Query Windows Registry",
                       "registry_hive": "HKCC",
                       "registry_key": "\\Software\\Fonts",
+                      "registry_key_path": "\\Software\\Fonts",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "LogPixels12333"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSO7CENYIGG63XS3UnH5sXbnaAW63HoQf",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCC",
+                      "registry_key": "\\Software\\Fonts",
+                      "registry_key_path": "\\Software\\Fonts12344",
                       "runtime_user": {
                         "override_target_runtime_user": false,
                         "target_default": true
@@ -1061,7 +1408,7 @@
                     "object_type": "definition_activity"
                   },
                   {
-                    "unique_name": "definition_activity_01B6FFYUB3TJ56sxx9TKt2J23tmJrj8TQBW",
+                    "unique_name": "definition_activity_01BSNTRHZ2MJV0qzHx2BjW9AjYOWMpHHQ2E",
                     "name": "Query Windows Registry",
                     "title": "Query Windows Registry",
                     "type": "windows.query_windows_registry",
@@ -1073,6 +1420,34 @@
                       "display_name": "Query Windows Registry",
                       "registry_hive": "HKCR",
                       "registry_key": "._sln",
+                      "registry_key_path": "\\._sln",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "(Default)12333"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSO841H93RT7eacuWZCPu8ByWiMgJOG4x",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCR",
+                      "registry_key": "._sln",
+                      "registry_key_path": "\\._sln123",
                       "runtime_user": {
                         "override_target_runtime_user": false,
                         "target_default": true
@@ -1083,6 +1458,114 @@
                         "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
                       },
                       "value_name": "(Default)"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSNUSO6OO6Z6okgm8EZSbly3CJ0wpdcvN",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCU",
+                      "registry_key": "\\AppEvents\\Schemes\\Apps\\.Default",
+                      "registry_key_path": "\\Control Panel\\Mouse",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "SmoothMouseXCurve123333"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSO8CO5P0I9586NbLCWkzw8PATP8vt84F",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKCU",
+                      "registry_key": "\\AppEvents\\Schemes\\Apps\\.Default",
+                      "registry_key_path": "\\Control Panel\\Mouse1234444",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "SmoothMouseXCurve"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSNVTA3VLRQ1fHVO9AVfIBt6j4jDiABng",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKU",
+                      "registry_key": "S-1-5-18\\Control Panel\\Mouse",
+                      "registry_key_path": "\\S-1-5-18\\Control Panel\\Mouse1233333333",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "SmoothMouseXCurve"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01BSO95W0RAEL4XIVvnnYp5xWdJrpqAiFzp",
+                    "name": "Query Windows Registry",
+                    "title": "Query Windows Registry",
+                    "type": "windows.query_windows_registry",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "check_key_existence": false,
+                      "continue_on_failure": true,
+                      "display_name": "Query Windows Registry",
+                      "registry_hive": "HKU",
+                      "registry_key": "S-1-5-18\\Control Panel\\Mouse",
+                      "registry_key_path": "\\S-1-5-18\\Control Panel\\Mouse",
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      },
+                      "value_name": "SmoothMouseXCurve1234567"
                     },
                     "object_type": "definition_activity"
                   }
@@ -1265,32 +1748,6 @@
                       "within_the_last": 5
                     },
                     "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01B6HQNDLCR8Q1dlivIpxILQlUf7HGAG3Z0",
-                    "name": "Query Windows Registry",
-                    "title": "Query Windows Registry",
-                    "type": "windows.query_windows_registry",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "check_key_existence": false,
-                      "continue_on_failure": true,
-                      "display_name": "Query Windows Registry",
-                      "registry_hive": "HKCU",
-                      "registry_key": "\\AppEvents\\Schemes\\Apps\\.Default",
-                      "runtime_user": {
-                        "override_target_runtime_user": false,
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "override_workflow_target": true,
-                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                      },
-                      "value_name": "(Default)"
-                    },
-                    "object_type": "definition_activity"
                   }
                 ]
               }
@@ -1452,135 +1909,6 @@
                         "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
                       },
                       "within_the_last": 5
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01B6HQKS1BKTX6ZeE3mhoXhUvLbxQSvvE5Y",
-                    "name": "Query Windows Registry",
-                    "title": "Query Windows Registry",
-                    "type": "windows.query_windows_registry",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "check_key_existence": false,
-                      "continue_on_failure": true,
-                      "display_name": "Query Windows Registry",
-                      "registry_hive": "HKLM",
-                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
-                      "runtime_user": {
-                        "override_target_runtime_user": false,
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "override_workflow_target": true,
-                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                      },
-                      "value_name": "OLEDB"
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01B7AJQ6MZQN21eXXgWczNLT0Dt6jTlXx42",
-                    "name": "Query Windows Registry",
-                    "title": "Query Windows Registry",
-                    "type": "windows.query_windows_registry",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "check_key_existence": true,
-                      "continue_on_failure": true,
-                      "display_name": "Query Windows Registry",
-                      "registry_hive": "HKLM",
-                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
-                      "runtime_user": {
-                        "override_target_runtime_user": false,
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "override_workflow_target": true,
-                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                      }
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01B7AI96JKZNK0uK5eRiQN4pzIzAuThQMII",
-                    "name": "Query Windows Registry",
-                    "title": "Query Windows Registry",
-                    "type": "windows.query_windows_registry",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "check_key_existence": false,
-                      "continue_on_failure": true,
-                      "display_name": "Query Windows Registry",
-                      "registry_hive": "HKU",
-                      "registry_key": "S-1-5-18\\Control Panel\\Mouse",
-                      "runtime_user": {
-                        "override_target_runtime_user": false,
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "override_workflow_target": true,
-                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                      },
-                      "value_name": "SmoothMouseXCurve"
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01B7AIAP0BC4O6mCr7Qb4AxzBc6nobYSB0z",
-                    "name": "Query Windows Registry",
-                    "title": "Query Windows Registry",
-                    "type": "windows.query_windows_registry",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "check_key_existence": false,
-                      "continue_on_failure": true,
-                      "display_name": "Query Windows Registry",
-                      "registry_hive": "HKLM",
-                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1123333",
-                      "runtime_user": {
-                        "override_target_runtime_user": false,
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "override_workflow_target": true,
-                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                      },
-                      "value_name": "OLEDB"
-                    },
-                    "object_type": "definition_activity"
-                  },
-                  {
-                    "unique_name": "definition_activity_01B7AJE2L33062lOydHMFdq88YFRXEG5IQD",
-                    "name": "Query Windows Registry",
-                    "title": "Query Windows Registry",
-                    "type": "windows.query_windows_registry",
-                    "base_type": "activity",
-                    "properties": {
-                      "action_timeout": 180,
-                      "check_key_existence": false,
-                      "continue_on_failure": true,
-                      "display_name": "Query Windows Registry",
-                      "registry_hive": "HKLM",
-                      "registry_key": "\\SOFTWARE\\ORACLE\\KEY_OraDB12Home1",
-                      "runtime_user": {
-                        "override_target_runtime_user": false,
-                        "target_default": true
-                      },
-                      "skip_execution": false,
-                      "target": {
-                        "override_workflow_target": true,
-                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
-                      },
-                      "value_name": "OLEDB12333333"
                     },
                     "object_type": "definition_activity"
                   }
