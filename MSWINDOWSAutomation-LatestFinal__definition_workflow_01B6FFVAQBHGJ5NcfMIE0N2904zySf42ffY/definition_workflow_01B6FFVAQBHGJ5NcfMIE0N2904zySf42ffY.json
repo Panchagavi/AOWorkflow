@@ -9,18 +9,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "C:\\PWS\\",
-          "scope": "input",
-          "name": "WorkingDirectory",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "AODIR",
           "scope": "input",
           "name": "DirectoryName for Mkdir",
@@ -40,6 +28,18 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01BA2P17YUOWZ4OcoF8Q2H5chPS8qpPMvFE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "C:\\PWS\\",
+          "scope": "input",
+          "name": "WorkingDirectory",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473",
         "object_type": "variable_workflow"
       }
     ],
@@ -63,13 +63,13 @@
       {
         "unique_name": "definition_activity_01B6HOV6QICTH3xEtDPGZtGU366MRjTQr0W",
         "name": "Parallel Block",
-        "title": "Parallel Block- Execute Action Block",
+        "title": "Parallel Block- Execute Action Block- Execute Scripts",
         "type": "logic.parallel",
         "base_type": "activity",
         "properties": {
           "continue_on_failure": true,
           "description": "This Block Contains Powershell/WIndows and Command Scripts which is having single line script and also from the remote file.",
-          "display_name": "Parallel Block- Execute Action Block",
+          "display_name": "Parallel Block- Execute Action Block- Execute Scripts",
           "skip_execution": false
         },
         "object_type": "definition_activity",
@@ -188,6 +188,34 @@
                   "windows_script": "On Error Resume Next\nDim fso, folder, files, NewsFile,sFolder\n\nSet fso = CreateObject(\"Scripting.FileSystemObject\")\nsFolder = Wscript.Arguments.Item(0)\nIf sFolder = \"\" Then\nWscript.Echo \"No Folder parameter was passed\"\nWscript.Quit\nEnd If\nSet NewFile = fso.CreateTextFile(sFolder\u0026\"\\FileList.txt\", True)\nSet folder = fso.GetFolder(sFolder)\nSet files = folder.Files\n\nFor each folderIdx In files\nNewFile.WriteLine(folderIdx.Name)\nNext\nNewFile.Close"
                 },
                 "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01BYJRXRVDYVI62VJVVwCuWyhgU2r8O5gVA",
+                "name": "Execute Windows Script",
+                "title": "Execute Windows Script",
+                "type": "windows.execute_windows_script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "description": "Passing the Script directly from the AO Workflow  with argumanets",
+                  "display_name": "Execute Windows Script",
+                  "execute_remote_file": true,
+                  "remote_file": "2.vbs",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "script_arguments": [
+                    "C:/PWS"
+                  ],
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                  }
+                },
+                "object_type": "definition_activity"
               }
             ]
           },
@@ -296,7 +324,7 @@
                   "description": "Execute from the remote file",
                   "display_name": "Execute Windows Script",
                   "execute_remote_file": true,
-                  "remote_file": "2.vbs C:/Windows",
+                  "remote_file": "2.vbs",
                   "runtime_user": {
                     "override_target_runtime_user": false,
                     "target_default": true
@@ -450,6 +478,32 @@
                     "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
                   },
                   "working_directory": "$workflow.definition_workflow_01B6FFVAQBHGJ5NcfMIE0N2904zySf42ffY.input.variable_workflow_01B6HUY7LJOFT6g9Gh5uwZkYGof4uOAw473$"
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01BYJPFK560ZQ0lBOd2EAmFTYfCfdwNYCWS",
+                "name": "Execute Windows Script",
+                "title": "Execute Windows Script",
+                "type": "windows.execute_windows_script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "description": "Invalid bat file",
+                  "display_name": "Execute Windows Script",
+                  "execute_remote_file": true,
+                  "remote_file": "2.vbs",
+                  "runtime_user": {
+                    "override_target_runtime_user": false,
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "override_workflow_target": true,
+                    "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                  },
+                  "working_directory": "C:\\PWStest\\"
                 },
                 "object_type": "definition_activity"
               }
