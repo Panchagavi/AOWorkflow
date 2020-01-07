@@ -802,6 +802,38 @@
                     "object_type": "definition_activity"
                   },
                   {
+                    "unique_name": "definition_activity_01CSAVG9GDHUP6tZvOiiER9NzfUsK0H5ZZp",
+                    "name": "Correlate Windows Events",
+                    "title": "Correlate Windows Events",
+                    "type": "windows.correlate_windows_events",
+                    "base_type": "activity",
+                    "properties": {
+                      "action_timeout": 180,
+                      "after_time": "1/5/2020 11:08:32",
+                      "before_time": "1/6/2020 11:44:19",
+                      "continue_on_failure": false,
+                      "display_name": "Correlate Windows Events",
+                      "entry_type": [
+                        "Information"
+                      ],
+                      "event_computer_name": "po-w12r2-mysql.tidalsoft.local",
+                      "event_description": "The description *",
+                      "event_source": "gupdate",
+                      "log_name": "Application",
+                      "persist_output": false,
+                      "runtime_user": {
+                        "override_target_runtime_user": false,
+                        "target_default": true
+                      },
+                      "skip_execution": false,
+                      "target": {
+                        "override_workflow_target": true,
+                        "target_id": "definition_target_0180ZAPJEJR1S3fVyAh3hlYsSlvB9B4HlXV"
+                      }
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
                     "unique_name": "definition_activity_01B6HQ9I36BSI7fJvMXE0Dp3arRx0OC2dJj",
                     "name": "Control Windows Service",
                     "title": "Control Windows Service",
@@ -2807,7 +2839,7 @@
       "base_type": "target",
       "object_type": "definition_target",
       "properties": {
-        "default_runtime_user_id": "definition_runtime_user_01AMVKPWQWRBN6PT2WiAqqdaDKpEkhuk9Ss",
+        "default_runtime_user_id": "definition_runtime_user_01CBDKGICFAT17Jb08unaOGW37Sc3udBbYU",
         "description": "test111",
         "display_name": "RG windows",
         "host": "10.201.113.12",
@@ -2842,6 +2874,20 @@
       "properties": {
         "description": "test",
         "display_name": "WInidowsUser",
+        "password": "*****",
+        "username": "*****"
+      }
+    },
+    "definition_runtime_user_01CBDKGICFAT17Jb08unaOGW37Sc3udBbYU": {
+      "unique_name": "definition_runtime_user_01CBDKGICFAT17Jb08unaOGW37Sc3udBbYU",
+      "name": "windowsuser",
+      "title": "windowsuser",
+      "type": "runtime_user.windows_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "description": "windowsuser",
+        "display_name": "windowsuser",
         "password": "*****",
         "username": "*****"
       }
