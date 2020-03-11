@@ -9,30 +9,6 @@
       {
         "schema_id": "datatype.string",
         "properties": {
-          "value": "C:\\PWS\\folderandDir\\",
-          "scope": "input",
-          "name": "Directorypath",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01BA2P17YUOWZ4OcoF8Q2H5chPS8qpPMvFE",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "All Action Results True/False",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01CT5LSN8D6DD5rdTryOL1JRSXpvRgfdb7V",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
           "value": "",
           "scope": "output",
           "name": "Table Email",
@@ -65,6 +41,30 @@
         },
         "unique_name": "variable_workflow_01B6HVUZUZZ086p7tFvfoaYrlXFlF6GYYlS",
         "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "C:\\PWS\\folderandDir\\",
+          "scope": "input",
+          "name": "Directorypath",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01BA2P17YUOWZ4OcoF8Q2H5chPS8qpPMvFE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "All Action Results True/False",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01CT5LSN8D6DD5rdTryOL1JRSXpvRgfdb7V",
+        "object_type": "variable_workflow"
       }
     ],
     "properties": {
@@ -72,6 +72,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
+      "description": "this wf",
       "display_name": "MSWindows_Automation Vinay",
       "runtime_user": {
         "override_target_runtime_user": false,
