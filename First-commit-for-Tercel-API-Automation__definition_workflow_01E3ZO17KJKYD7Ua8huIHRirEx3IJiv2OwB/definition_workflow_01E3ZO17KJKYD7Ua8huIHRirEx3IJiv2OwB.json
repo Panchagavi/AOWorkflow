@@ -1,0 +1,1858 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB",
+    "name": "Tercel API WF",
+    "title": "Tercel API WF",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "output",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_01EBA14LJ8E8F2BUDvVRLG0DkozSQCWZPsF",
+        "properties": {
+          "scope": "local",
+          "name": "Sorting Headers",
+          "type": "datatype.table",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01EBL8KMGYAHW2DfqKxsFmV8TPXcVbZiCZg",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Tercel API WF",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01E3ZMD6VGMGH0k5WtN4ipzM7o16yZPdgX5",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01E95ICBS3GOO3th82waf5zLXhkuiTX4igB",
+        "name": "Group",
+        "title": "Schema API",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Schema API",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01EB7L7AGOTLX0LGn9a03Qst9e3EXVTA3jZ",
+            "name": "HTTP Request",
+            "title": "Get all Schema",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Get all Schema",
+              "method": "GET",
+              "relative_url": "/schemas",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E9647OE4ICH196atSLlTn06WPTddlqwmk",
+            "name": "HTTP Request",
+            "title": "Create a Schema",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "body": "{\n    \"object_type\": \"schema\",\n    \"name\": \"Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n    \"title\": \"Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n    \"description\": \"Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n    \"type\": \"Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n    \"base_type\": \"category\",\n    \"version\": {\n        \"major\": 1,\n        \"minor\": 0,\n        \"build\": 0\n    },\n    \"data_schema\": {\n        \"group\": \"\",\n        \"property_schema\": {\n            \"required\": [\"name\"],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\",\n                    \"title\": \"Name\",\n                    \"minLength\": 0,\n                    \"maxLength\": 64\n                },\n                \"description\": {\n                    \"type\": \"string\",\n                    \"title\": \"Description\",\n                    \"minLength\": 0,\n                    \"maxLength\": 1024\n                }\n            }\n        }\n    },\n    \"view_schema\": {\n        \"group\": \"\",\n        \"property_schema\": {\n            \"required\": [\"name\"],\n            \"properties\": {\n                \"name\": {\n                    \"title\": \"Display Name\",\n                    \"type\": \"string\",\n                    \"component\": \"text\",\n                    \"section\": \"General Information\",\n                    \"minLength\": 0,\n                    \"maxLength\": 64,\n                    \"position\": 1\n                },\n                \"description\": {\n                    \"title\": \"Description\",\n                    \"section\": \"General Information\",\n                    \"position\": 2,\n                    \"type\": \"string\",\n                    \"component\": \"textarea\",\n                    \"minLength\": 0,\n                    \"maxLength\": 1024\n                }\n            }\n        },\n        \"view_config\": {\n            \"section_order\": [\n                \"General Information\"\n            ]\n        }\n    }\n}",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Create a Schema",
+              "method": "POST",
+              "relative_url": "/schemas",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB9B64STWZ16aS0U7dsL0IDXBzFYvnlLe",
+            "name": "For Each",
+            "title": "For Each",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "For Each",
+              "skip_execution": false,
+              "source_array": "$activity.definition_activity_01E9647OE4ICH196atSLlTn06WPTddlqwmk.output.response_headers$"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01EBL87C030BT0SDpsc5EabTzbZGbfXGA33",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.local.variable_workflow_01EBL8KMGYAHW2DfqKxsFmV8TPXcVbZiCZg$",
+                  "row": [
+                    {
+                      "key": "Name",
+                      "type": "string",
+                      "value": "$activity.definition_activity_01EB9B64STWZ16aS0U7dsL0IDXBzFYvnlLe.input.source_array[@].name$"
+                    },
+                    {
+                      "key": "Value",
+                      "type": "string",
+                      "value": "$activity.definition_activity_01EB9B64STWZ16aS0U7dsL0IDXBzFYvnlLe.input.source_array[@].value$"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01EBL9L7INWX46dHHcmkcGYrRUQqoRN5D2D",
+            "name": "Select from Table",
+            "title": "Select from Table",
+            "type": "core.selectfromtable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "columns": [
+                {
+                  "column_name": "Name",
+                  "column_type": "string"
+                },
+                {
+                  "column_name": "Value",
+                  "column_type": "string"
+                }
+              ],
+              "continue_on_failure": true,
+              "display_name": "Select from Table",
+              "input_table": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.local.variable_workflow_01EBL8KMGYAHW2DfqKxsFmV8TPXcVbZiCZg$",
+              "number_of_rows": {
+                "all_rows": true,
+                "at_most": false
+              },
+              "persist_output": true,
+              "skip_execution": false,
+              "sorting": {
+                "no_sort": true,
+                "sort_by": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EBLAJANPIE30aUUNUCedr98x0edQUS61S",
+            "name": "JSONPath Query",
+            "title": "Find the Location from the Schema API Response",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Find the Location from the Schema API Response",
+              "input_json": "$activity.definition_activity_01EBL9L7INWX46dHHcmkcGYrRUQqoRN5D2D.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$..[?(@.Name=='Location')].Value",
+                  "jsonpath_query_name": "Location ID",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB7YYV775UI14a9fIBfJdG7npA60Sf9B6",
+            "name": "Replace String",
+            "title": "Find schema ID",
+            "type": "core.replacestring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Find schema ID",
+              "input_string": "$activity.definition_activity_01EBLAJANPIE30aUUNUCedr98x0edQUS61S.output.jsonpath_queries.Location ID$",
+              "replace_list": [
+                {
+                  "replaced_string": "/api/v1/schemas/",
+                  "replacement_string": ""
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB80FP9ICAE1oYinjy2Uv9BaJUODq7cLG",
+            "name": "HTTP Request",
+            "title": "Get Created schemas",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Get Created schemas",
+              "method": "GET",
+              "relative_url": "/schemas/$activity.definition_activity_01EB7YYV775UI14a9fIBfJdG7npA60Sf9B6.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB80MLN67PA7EGduH5Mvf1M1pvE8XMSAo",
+            "name": "JSONPath Query",
+            "title": "Fetch Created schemas Name title  description and type",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Created schemas Name title  description and type",
+              "input_json": "$activity.definition_activity_01EB80FP9ICAE1oYinjy2Uv9BaJUODq7cLG.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.name",
+                  "jsonpath_query_name": "Name",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.description",
+                  "jsonpath_query_name": "Description",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.type",
+                  "jsonpath_query_name": "type",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.title",
+                  "jsonpath_query_name": "title",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB84EL58PIQ1xbS5jVDzSUNuT1JHOuidU",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01EB84ETA9PHW0h0Amojnzko9xLVQAqylLv",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01E9647OE4ICH196atSLlTn06WPTddlqwmk.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 201
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01EB84EWYUP984L62z7yAW2SAcgQmmeRNQy",
+                    "name": "Find String",
+                    "title": "Validate schema Name",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate schema Name",
+                      "searched_string": "Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB80MLN67PA7EGduH5Mvf1M1pvE8XMSAo.output.jsonpath_queries.Name$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EB8862K2C8K1PsQpmaerkYyZEd6PexlTI",
+                    "name": "Find String",
+                    "title": "Validate schema Description",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate schema Description",
+                      "searched_string": "Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB80MLN67PA7EGduH5Mvf1M1pvE8XMSAo.output.jsonpath_queries.Description$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EB88DV5E57Q0JsakHO9EgToqTVV5nIt3f",
+                    "name": "Find String",
+                    "title": "Validate schema title",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate schema title",
+                      "searched_string": "Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB80MLN67PA7EGduH5Mvf1M1pvE8XMSAo.output.jsonpath_queries.title$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EB88I3M7WO12AypVoTdHkZKP2mncnLj5I",
+                    "name": "Find String",
+                    "title": "Validate schema type",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate schema type",
+                      "searched_string": "Generic Category Custom-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB80MLN67PA7EGduH5Mvf1M1pvE8XMSAo.output.jsonpath_queries.type$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EBM6GS1WL9J7dyXaxYT5UIjKADDG3TuRn",
+                    "name": "Condition Block",
+                    "title": "Condition Block",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Condition Block",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_01EBM6I2UYU4W4rFDIystiRnToetvMx1Bqx",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB84EWYUP984L62z7yAW2SAcgQmmeRNQy.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": true
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB8862K2C8K1PsQpmaerkYyZEd6PexlTI.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": true
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_01EB88DV5E57Q0JsakHO9EgToqTVV5nIt3f.output.has_match$",
+                                "operator": "eq",
+                                "right_operand": true
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01EB88I3M7WO12AypVoTdHkZKP2mncnLj5I.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": true
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01EB84F4BLVEU0onfQB9CHz6raWJfirVetk",
+                            "name": "Set Variables",
+                            "title": "Pass",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Pass",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Passed - $activity.definition_activity_01EBM6I2UYU4W4rFDIystiRnToetvMx1Bqx.output.succeeded$-$activity.definition_activity_01E9647OE4ICH196atSLlTn06WPTddlqwmk.output.status_text$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01EBM6IB318MQ6rPnS9LLLHfngIefY15UwI",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB84EWYUP984L62z7yAW2SAcgQmmeRNQy.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": false
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB8862K2C8K1PsQpmaerkYyZEd6PexlTI.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": false
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_01EB88DV5E57Q0JsakHO9EgToqTVV5nIt3f.output.has_match$",
+                                "operator": "eq",
+                                "right_operand": false
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01EB88I3M7WO12AypVoTdHkZKP2mncnLj5I.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": false
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01EBMLVQ62IQT3zItB74g3hEw1MBFXNSXUY",
+                            "name": "Set Variables",
+                            "title": "Fail",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Fail",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Failed - $activity.definition_activity_01EBM6IB318MQ6rPnS9LLLHfngIefY15UwI.output.succeeded$-$activity.definition_activity_01E9647OE4ICH196atSLlTn06WPTddlqwmk.output.status_text$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01EB84FA1PX630nnSFocXE4fckELAhSXN7W",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01E9647OE4ICH196atSLlTn06WPTddlqwmk.output.status_code$",
+                    "operator": "ne",
+                    "right_operand": 201
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01EB84FJYT61V3pRiOgYaQ7L0pBt1tN2OWs",
+                    "name": "Set Variables",
+                    "title": "Fail",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Fail",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                          "variable_value_new": "Failed-"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01EB8C6U9FNKL3yWUpGYVF8VpfgYqT6t6JI",
+            "name": "HTTP Request",
+            "title": "Update Schema",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "body": "{\n    \"object_type\": \"schema\",\n    \"name\": \"Generic Category Custom Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n    \"title\": \"Generic Category Custom Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n    \"description\": \"Generic Category Custom Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n    \"type\": \"generic.category Custom Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\" ,\n    \"base_type\": \"category\",\n    \"version\": {\n        \"major\": 1,\n        \"minor\": 0,\n        \"build\": 0\n    },\n    \"data_schema\": {\n        \"group\": \"\",\n        \"property_schema\": {\n            \"required\": [\"name\"],\n            \"properties\": {\n                \"name\": {\n                    \"type\": \"string\",\n                    \"title\": \"Name\",\n                    \"minLength\": 0,\n                    \"maxLength\": 64\n                },\n                \"description\": {\n                    \"type\": \"string\",\n                    \"title\": \"Description\",\n                    \"minLength\": 0,\n                    \"maxLength\": 1024\n                }\n            }\n        }\n    },\n    \"view_schema\": {\n        \"group\": \"\",\n        \"property_schema\": {\n            \"required\": [\"name\"],\n            \"properties\": {\n                \"name\": {\n                    \"title\": \"Display Name\",\n                    \"type\": \"string\",\n                    \"component\": \"text\",\n                    \"section\": \"General Information\",\n                    \"minLength\": 0,\n                    \"maxLength\": 64,\n                    \"position\": 1\n                },\n                \"description\": {\n                    \"title\": \"Description\",\n                    \"section\": \"General Information\",\n                    \"position\": 2,\n                    \"type\": \"string\",\n                    \"component\": \"textarea\",\n                    \"minLength\": 0,\n                    \"maxLength\": 1024\n                }\n            }\n        },\n        \"view_config\": {\n            \"section_order\": [\n                \"General Information\"\n            ]\n        }\n    }\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Update Schema",
+              "method": "PUT",
+              "relative_url": "/schemas/$activity.definition_activity_01EB7YYV775UI14a9fIBfJdG7npA60Sf9B6.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB8EPBSLLSI5gL8NYJLrQMIwjtx7vZTQf",
+            "name": "HTTP Request",
+            "title": "Get Updated schemas",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Get Updated schemas",
+              "method": "GET",
+              "relative_url": "/schemas/$activity.definition_activity_01EB7YYV775UI14a9fIBfJdG7npA60Sf9B6.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB8ET5NKSWB5ZOZOpa4i7x0Q2YIyh7lJa",
+            "name": "JSONPath Query",
+            "title": "Fetch Updated schemas Name title  description and type",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Fetch Updated schemas Name title  description and type",
+              "input_json": "$activity.definition_activity_01EB8EPBSLLSI5gL8NYJLrQMIwjtx7vZTQf.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.name",
+                  "jsonpath_query_name": "Name",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.description",
+                  "jsonpath_query_name": "Description",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.type",
+                  "jsonpath_query_name": "type",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.title",
+                  "jsonpath_query_name": "title",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB8GND7XN2H3zF1x0rl552oJ7DACruFqH",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01EB8GNMMSWJ954Uy6bTKEvOaak270TC7Dw",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01EB8C6U9FNKL3yWUpGYVF8VpfgYqT6t6JI.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01EB8GNPUDSUK3F777amFCVbvZw2JOfWqoZ",
+                    "name": "Find String",
+                    "title": "Validate Updated schema Name",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate Updated schema Name",
+                      "searched_string": "Generic Category Custom Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB8ET5NKSWB5ZOZOpa4i7x0Q2YIyh7lJa.output.jsonpath_queries.Name$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EB8GNSXX1W13ZVO2fBbOMN2Ai9p6Sjmkc",
+                    "name": "Find String",
+                    "title": "Validate Updated schema Description",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate Updated schema Description",
+                      "searched_string": "Generic Category Custom Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB8ET5NKSWB5ZOZOpa4i7x0Q2YIyh7lJa.output.jsonpath_queries.Description$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EB8GNVT4P4Q4HhwRHL5aeWZloTnW8iU0d",
+                    "name": "Find String",
+                    "title": "Validate Updated schema title",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate Updated schema title",
+                      "searched_string": "Generic Category Custom Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB8ET5NKSWB5ZOZOpa4i7x0Q2YIyh7lJa.output.jsonpath_queries.title$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EB8GNZ6LX675GnBKP4hZQfFq7GIomj4Aq",
+                    "name": "Find String",
+                    "title": "Validate Updated schema type",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Validate Updated schema type",
+                      "searched_string": "Generic Category Custom Update1-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01EB8ET5NKSWB5ZOZOpa4i7x0Q2YIyh7lJa.output.jsonpath_queries.type$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EBMPKJIUDRA3GfXJaATHOGL1ypNjtWfrb",
+                    "name": "Condition Block",
+                    "title": "Condition Block",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Condition Block",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_01EBMPL0P94XN12tYrMqyRk0DUxdrGuhcov",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB8GNPUDSUK3F777amFCVbvZw2JOfWqoZ.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": true
+                                },
+                                "operator": "and",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB8GNSXX1W13ZVO2fBbOMN2Ai9p6Sjmkc.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": true
+                                }
+                              },
+                              "operator": "and",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_01EB8GNVT4P4Q4HhwRHL5aeWZloTnW8iU0d.output.has_match$",
+                                "operator": "eq",
+                                "right_operand": true
+                              }
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01EB8GNZ6LX675GnBKP4hZQfFq7GIomj4Aq.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": true
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01EB8GO27VKQF5pUScyVeXQEKP4qZmwqKI1",
+                            "name": "Set Variables",
+                            "title": "Pass",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Pass",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Passed - $activity.definition_activity_01EBMPL0P94XN12tYrMqyRk0DUxdrGuhcov.output.succeeded$-$activity.definition_activity_01EB8C6U9FNKL3yWUpGYVF8VpfgYqT6t6JI.output.status_text$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01EBMPL6P32X301SUFM2Hft7EXDQeuCR8IU",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": {
+                                "left_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB8GNPUDSUK3F777amFCVbvZw2JOfWqoZ.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": false
+                                },
+                                "operator": "or",
+                                "right_operand": {
+                                  "left_operand": "$activity.definition_activity_01EB8GNSXX1W13ZVO2fBbOMN2Ai9p6Sjmkc.output.has_match$",
+                                  "operator": "eq",
+                                  "right_operand": false
+                                }
+                              },
+                              "operator": "or",
+                              "right_operand": {
+                                "left_operand": "$activity.definition_activity_01EB8GNVT4P4Q4HhwRHL5aeWZloTnW8iU0d.output.has_match$",
+                                "operator": "eq",
+                                "right_operand": false
+                              }
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01EB8GNZ6LX675GnBKP4hZQfFq7GIomj4Aq.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": false
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01EBMUVNN1PA05w6IL3kDEivwuB1Xvlt2tI",
+                            "name": "Set Variables",
+                            "title": "Fail",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Fail",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Fail-$activity.definition_activity_01EBMPL6P32X301SUFM2Hft7EXDQeuCR8IU.output.succeeded$- $activity.definition_activity_01EB8C6U9FNKL3yWUpGYVF8VpfgYqT6t6JI.output.status_text$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01EB8GO4QQ74W4KqD9qEMaioN0CPWp6hPwA",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01EB8C6U9FNKL3yWUpGYVF8VpfgYqT6t6JI.output.status_code$",
+                    "operator": "ne",
+                    "right_operand": 200
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01EB8GO7PS4C83eqdar39byBeRQPCXVuSHq",
+                    "name": "Set Variables",
+                    "title": "Fail",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Fail",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                          "variable_value_new": "Failed-$activity.definition_activity_01EB8C6U9FNKL3yWUpGYVF8VpfgYqT6t6JI.output.status_code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01EB8LZ1O4R206bCjWYajrZCk7dk9Vg5niq",
+            "name": "HTTP Request",
+            "title": "Delete Schema",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Delete Schema",
+              "method": "DELETE",
+              "relative_url": "/schemas/$activity.definition_activity_01EB7YYV775UI14a9fIBfJdG7npA60Sf9B6.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EB8M4BLT0H20sE1oLLN6rgCuMgEORCcGz",
+            "name": "HTTP Request",
+            "title": "Verify Schema Deletion",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": true,
+              "display_name": "Verify Schema Deletion",
+              "method": "GET",
+              "relative_url": "/schemas/$activity.definition_activity_01EB7YYV775UI14a9fIBfJdG7npA60Sf9B6.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01E93GZHZO50I78YjJWBqPluOeR5purdQ7W",
+        "name": "Group",
+        "title": "Service API",
+        "type": "logic.group",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Service API",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79",
+            "name": "HTTP Request",
+            "title": "Create Service",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "body": "{\n\"name\": \"service01-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n\"description\": \"service01 desc-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n\"object_type\": \"service\",\n\"base_type\":\"\",\n\"lifecycle_mapping\": [\n{\n\"policy\": \"5ddf816cb2580ad56213e3cf\",\n\"state\": \"5ddf816cb2580ad56213e3cf\",\n\"actions\": [\n\"5ddf816cb2580ad56213e3cf\",\n\"5ddf816cb2580ad56213e3cf\"\n]\n}\n],\n\"thumbnail\": {\n\"_id\": \"5ddf816cb2580ad56213e3cf\",\n\"properties\": {}\n},\n\"image_gallery\": [\n{\n\"_id\": \"5e1453ee70e272aea1b50a1c\",\n\"properties\": {}\n},\n{\n\"_id\": \"5ddf816cb2580ad56213e3cf\",\n\"properties\": {}\n}\n],\n\"orderable\": true,\n\"orderable_by_others\": true,\n\"version\": {}\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Create Service",
+              "method": "POST",
+              "relative_url": "/services",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EBP2D4FEYDA4M789K4FQl3Memgs2TLptC",
+            "name": "For Each",
+            "title": "For Each",
+            "type": "logic.for_each",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "For Each",
+              "skip_execution": false,
+              "source_array": "$activity.definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79.output.response_headers$"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01EBP2JIKL19G39Z5swq1oWpuhNR0qXezYk",
+                "name": "Add Row to Table",
+                "title": "Add Row to Table",
+                "type": "core.addrowtotable",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": false,
+                  "display_name": "Add Row to Table",
+                  "input_table": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.local.variable_workflow_01EBL8KMGYAHW2DfqKxsFmV8TPXcVbZiCZg$",
+                  "row": [
+                    {
+                      "key": "Name",
+                      "type": "string",
+                      "value": "$activity.definition_activity_01EBP2D4FEYDA4M789K4FQl3Memgs2TLptC.input.source_array[@].name$"
+                    },
+                    {
+                      "key": "Value",
+                      "type": "string",
+                      "value": "$activity.definition_activity_01EBP2D4FEYDA4M789K4FQl3Memgs2TLptC.input.source_array[@].value$"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01EBP4M6KPK9Q1QYWqeTuzYoS2Q4DWllfAM",
+            "name": "Select from Table",
+            "title": "Select from Table",
+            "type": "core.selectfromtable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "columns": [
+                {
+                  "column_name": "Name",
+                  "column_type": "string"
+                },
+                {
+                  "column_name": "Value",
+                  "column_type": "string"
+                }
+              ],
+              "continue_on_failure": false,
+              "display_name": "Select from Table",
+              "input_table": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.local.variable_workflow_01EBL8KMGYAHW2DfqKxsFmV8TPXcVbZiCZg$",
+              "number_of_rows": {
+                "all_rows": true,
+                "at_most": false
+              },
+              "persist_output": true,
+              "skip_execution": false,
+              "sorting": {
+                "no_sort": true,
+                "sort_by": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01EBP5GT3CDBH4zrLXw6muteMAFuv9T5K1Z",
+            "name": "JSONPath Query",
+            "title": "Find the Location of the Service from API Response",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Find the Location of the Service from API Response",
+              "input_json": "$activity.definition_activity_01EBP4M6KPK9Q1QYWqeTuzYoS2Q4DWllfAM.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$..[?(@.Name=='Location')].Value",
+                  "jsonpath_query_name": "Location ID",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E8KGIBSH97X37cAX4YpPTbBFC4Cib0gcC",
+            "name": "Replace String",
+            "title": "Find Service ID",
+            "type": "core.replacestring",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Find Service ID",
+              "input_string": "$activity.definition_activity_01EBP5GT3CDBH4zrLXw6muteMAFuv9T5K1Z.output.jsonpath_queries.Location ID$",
+              "replace_list": [
+                {
+                  "replaced_string": "/api/v1/services/",
+                  "replacement_string": ""
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E3ZQ3JA8LC80Y8LhAO12gDJgnS7hb5WkT",
+            "name": "HTTP Request",
+            "title": "Get Created Service",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Get Created Service",
+              "method": "GET",
+              "relative_url": "/services/$activity.definition_activity_01E8KGIBSH97X37cAX4YpPTbBFC4Cib0gcC.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E924HWBR5OZ7HIlmMG2TyRdGOJqLVbVTz",
+            "name": "JSONPath Query",
+            "title": "Fetch Created Service Name and description",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch Created Service Name and description",
+              "input_json": "$activity.definition_activity_01E3ZQ3JA8LC80Y8LhAO12gDJgnS7hb5WkT.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.name",
+                  "jsonpath_query_name": "Name",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.description",
+                  "jsonpath_query_name": "Description",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E920FWBKRGD3uQxKIgnqJLSgtSnXVBkJ0",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01E920GDW8EU66F2Jxy97bIWtXM8n5koCRu",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 201
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01E922HVB6R2S0l3fkqD1iwCQxd2Esl9AAN",
+                    "name": "Find String",
+                    "title": "Validate Service Name",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Validate Service Name",
+                      "searched_string": "service01-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01E924HWBR5OZ7HIlmMG2TyRdGOJqLVbVTz.output.jsonpath_queries.Name$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01E926K3Q16ZL13r1ZBv3nry6cQdTjAAjwy",
+                    "name": "Find String",
+                    "title": "Validate Service Description",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Validate Service Description",
+                      "searched_string": "service01 desc-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01E924HWBR5OZ7HIlmMG2TyRdGOJqLVbVTz.output.jsonpath_queries.Description$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EBP82N9JIW67JO8aYRNyuWEzhcFJaCcro",
+                    "name": "Condition Block",
+                    "title": "Condition Block",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Condition Block",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_01EBP836Z0KAG7SWwpG4aOFvGh5lq6bHQYf",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_01E922HVB6R2S0l3fkqD1iwCQxd2Esl9AAN.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": true
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01E926K3Q16ZL13r1ZBv3nry6cQdTjAAjwy.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": true
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01E92BULZY87I7Xbe5XhAcSDEefef0hrEB2",
+                            "name": "Set Variables",
+                            "title": "Pass",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Pass",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Passed - $activity.definition_activity_01EBP836Z0KAG7SWwpG4aOFvGh5lq6bHQYf.output.succeeded$-$activity.definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79.output.status_text$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01EBP83AJK4RO0kC0W0jqLPiZ1Do6goWBai",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_01E922HVB6R2S0l3fkqD1iwCQxd2Esl9AAN.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": false
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01E926K3Q16ZL13r1ZBv3nry6cQdTjAAjwy.output.has_match$",
+                              "operator": "eq",
+                              "right_operand": false
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01EBPAT28R5X00lbBBWOVDuYbjNYTytChvF",
+                            "name": "Set Variables",
+                            "title": "Fail",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Fail",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Failed - $activity.definition_activity_01EBP83AJK4RO0kC0W0jqLPiZ1Do6goWBai.output.succeeded$-$activity.definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79.output.status_code$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01E920GIX16V63IvVLqIwCtaDKHfa1jkp66",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79.output.status_code$",
+                    "operator": "ne",
+                    "right_operand": 201
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01E92BPJHRPG02lr3R8NJ7vNqE6vOwXTMe5",
+                    "name": "Set Variables",
+                    "title": "Fail",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Fail",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                          "variable_value_new": "Failed-$activity.definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79.output.status_code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01E92NCSBXM1X5Qsj8mkJV8qq3CRhyOPSuh",
+            "name": "HTTP Request",
+            "title": "Update Service",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "body": "{\n\"name\": \"service01-Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n\"description\": \"service01-desc-Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$\",\n\"object_type\": \"service\",\n\"base_type\":\"\",\n\"lifecycle_mapping\": [\n{\n\"policy\": \"5ddf816cb2580ad56213e3cf\",\n\"state\": \"5ddf816cb2580ad56213e3cf\",\n\"actions\": [\n\"5ddf816cb2580ad56213e3cf\",\n\"5ddf816cb2580ad56213e3cf\"\n]\n}\n],\n\"thumbnail\": {\n\"_id\": \"5ddf816cb2580ad56213e3cf\",\n\"properties\": {}\n},\n\"image_gallery\": [\n{\n\"_id\": \"5e1453ee70e272aea1b50a1c\",\n\"properties\": {}\n},\n{\n\"_id\": \"5ddf816cb2580ad56213e3cf\",\n\"properties\": {}\n}\n],\n\"orderable\": true,\n\"orderable_by_others\": true,\n\"version\": {}\n}",
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Update Service",
+              "method": "PUT",
+              "relative_url": "/services/$activity.definition_activity_01E8KGIBSH97X37cAX4YpPTbBFC4Cib0gcC.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E938S75718935H00zCKXwbg04iDdmrAvw",
+            "name": "HTTP Request",
+            "title": "Get Updated Service",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Get Updated Service",
+              "method": "GET",
+              "relative_url": "/services/$activity.definition_activity_01E8KGIBSH97X37cAX4YpPTbBFC4Cib0gcC.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E939PULZQW54eOoNo8QlrehiWqJaeGVRg",
+            "name": "JSONPath Query",
+            "title": "Fetch Updated Service Name and description",
+            "type": "corejava.jsonpathquery",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Fetch Updated Service Name and description",
+              "input_json": "$activity.definition_activity_01E938S75718935H00zCKXwbg04iDdmrAvw.output.response_body$",
+              "jsonpath_queries": [
+                {
+                  "jsonpath_query": "$.name",
+                  "jsonpath_query_name": "Updated Name",
+                  "jsonpath_query_type": "string"
+                },
+                {
+                  "jsonpath_query": "$.description",
+                  "jsonpath_query_name": "Updated Description",
+                  "jsonpath_query_type": "string"
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E93AF29F3GG2jDMuojVw9q77vlTqmm6pN",
+            "name": "Condition Block",
+            "title": "Condition Block",
+            "type": "logic.if_else",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Condition Block",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "blocks": [
+              {
+                "unique_name": "definition_activity_01E93AF8UUYYS4vq3jTWXhyDTrmSjNfQxKo",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01E92NCSBXM1X5Qsj8mkJV8qq3CRhyOPSuh.output.status_code$",
+                    "operator": "eq",
+                    "right_operand": 200
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01E93AFHI3LU03lO0svtqJRVmPpt58bBVCJ",
+                    "name": "Find String",
+                    "title": "Validate Updated Service Name",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Validate Updated Service Name",
+                      "searched_string": "service01-Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01E939PULZQW54eOoNo8QlrehiWqJaeGVRg.output.jsonpath_queries.Updated Name$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01E93AFLU17IB43yKbbHYUcifXG5am6pIlH",
+                    "name": "Find String",
+                    "title": "Validate Updated Service Description",
+                    "type": "core.find_string",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Validate Updated Service Description",
+                      "searched_string": "service01-desc-Update-$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.instance_id$",
+                      "skip_execution": false,
+                      "source": "$activity.definition_activity_01E939PULZQW54eOoNo8QlrehiWqJaeGVRg.output.jsonpath_queries.Updated Description$"
+                    },
+                    "object_type": "definition_activity"
+                  },
+                  {
+                    "unique_name": "definition_activity_01EBPBRZ9M7DF7f9EcFYsQsBeYbGTOuYIWf",
+                    "name": "Condition Block",
+                    "title": "Condition Block",
+                    "type": "logic.if_else",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Condition Block",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "blocks": [
+                      {
+                        "unique_name": "definition_activity_01EBPBS8YNV5B1UT4fNX9Wx8cdYoZhcqaPT",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_01E939PULZQW54eOoNo8QlrehiWqJaeGVRg.output.jsonpath_queries.Updated Name$",
+                              "operator": "eq",
+                              "right_operand": "true"
+                            },
+                            "operator": "and",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01E939PULZQW54eOoNo8QlrehiWqJaeGVRg.output.jsonpath_queries.Updated Description$",
+                              "operator": "eq",
+                              "right_operand": "true"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01EBPBSBNNR2T3qaZQYnjUanPuVN1y2eFZt",
+                            "name": "Set Variables",
+                            "title": "Pass",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Pass",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Passed - $activity.definition_activity_01EBPBS8YNV5B1UT4fNX9Wx8cdYoZhcqaPT.output.succeeded$-$activity.definition_activity_01E92NCSBXM1X5Qsj8mkJV8qq3CRhyOPSuh.output.status_text$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01EBPBSEQ41EH4lobMNnftkiXQEURFGwyzn",
+                        "name": "Condition Branch",
+                        "title": "Condition Branch",
+                        "type": "logic.condition_block",
+                        "base_type": "activity",
+                        "properties": {
+                          "condition": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_01E939PULZQW54eOoNo8QlrehiWqJaeGVRg.output.jsonpath_queries.Updated Description$",
+                              "operator": "eq",
+                              "right_operand": "false"
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01E939PULZQW54eOoNo8QlrehiWqJaeGVRg.output.jsonpath_queries.Updated Name$",
+                              "operator": "eq",
+                              "right_operand": "false"
+                            }
+                          },
+                          "continue_on_failure": false,
+                          "display_name": "Condition Branch",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01EBPBSK990CZ3hEQmjRxuhqO5Hw4bdJvvG",
+                            "name": "Set Variables",
+                            "title": "Fail",
+                            "type": "core.set_multiple_variables",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": false,
+                              "display_name": "Fail",
+                              "skip_execution": false,
+                              "variables_to_update": [
+                                {
+                                  "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                                  "variable_value_new": "Failed - $activity.definition_activity_01EBPBSEQ41EH4lobMNnftkiXQEURFGwyzn.output.succeeded$-$activity.definition_activity_01E92NCSBXM1X5Qsj8mkJV8qq3CRhyOPSuh.output.status_text$"
+                                }
+                              ]
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "unique_name": "definition_activity_01E93AFXH28DA0nTbFrht68fTZSeVIB3fyB",
+                "name": "Condition Branch",
+                "title": "Condition Branch",
+                "type": "logic.condition_block",
+                "base_type": "activity",
+                "properties": {
+                  "condition": {
+                    "left_operand": "$activity.definition_activity_01E92NCSBXM1X5Qsj8mkJV8qq3CRhyOPSuh.output.status_code$",
+                    "operator": "ne",
+                    "right_operand": 200
+                  },
+                  "continue_on_failure": false,
+                  "display_name": "Condition Branch",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01E93AG1EIEKC1hnpJ6wOnQRv3Un8Ey8Dt7",
+                    "name": "Set Variables",
+                    "title": "Fail",
+                    "type": "core.set_multiple_variables",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Fail",
+                      "skip_execution": false,
+                      "variables_to_update": [
+                        {
+                          "variable_to_update": "$workflow.definition_workflow_01E3ZO17KJKYD7Ua8huIHRirEx3IJiv2OwB.output.variable_workflow_01E7A53BWVH097Bb8eCb5PYz01feLfKcb1y$",
+                          "variable_value_new": "Failed-$activity.definition_activity_01E3ZOFUIMI5M6cHdj2l1iUf1rNRKcvRI79.output.status_code$"
+                        }
+                      ]
+                    },
+                    "object_type": "definition_activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01E93DU2XQ58P1Tou3tarLHvo5obJhrdOgn",
+            "name": "HTTP Request",
+            "title": "Delete Service",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Delete Service",
+              "method": "DELETE",
+              "relative_url": "/services/$activity.definition_activity_01E8KGIBSH97X37cAX4YpPTbBFC4Cib0gcC.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01E93F86YHGLY2rB13ImeNeiFOwaZJ365ro",
+            "name": "HTTP Request",
+            "title": "Verify Service Deletion",
+            "type": "web-service.http_request",
+            "base_type": "activity",
+            "properties": {
+              "accept": "application/json",
+              "action_timeout": 180,
+              "allow_auto_redirect": true,
+              "content_type": "application/json",
+              "continue_on_error_status_code": false,
+              "continue_on_failure": false,
+              "display_name": "Verify Service Deletion",
+              "method": "GET",
+              "relative_url": "/services/$activity.definition_activity_01E8KGIBSH97X37cAX4YpPTbBFC4Cib0gcC.output.result_string$",
+              "runtime_user": {
+                "override_target_runtime_user": false,
+                "target_default": true
+              },
+              "skip_execution": false,
+              "target": {
+                "override_workflow_target": false,
+                "override_workflow_target_group_criteria": false,
+                "use_workflow_target": true,
+                "use_workflow_target_group": false
+              }
+            },
+            "object_type": "definition_activity"
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01E3ZMD6VGMGH0k5WtN4ipzM7o16yZPdgX5": {
+      "unique_name": "definition_target_01E3ZMD6VGMGH0k5WtN4ipzM7o16yZPdgX5",
+      "name": "Tercel",
+      "title": "Tercel",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "Tercel",
+        "host": "172.21.37.49",
+        "ignore_proxy": true,
+        "no_runtime_user": true,
+        "path": "/api/v1",
+        "port": 8006,
+        "protocol": "https"
+      }
+    }
+  },
+  "table_types": {
+    "tabletype_01EBA14LJ8E8F2BUDvVRLG0DkozSQCWZPsF": {
+      "unique_name": "tabletype_01EBA14LJ8E8F2BUDvVRLG0DkozSQCWZPsF",
+      "data_type": "datatype.tabletype",
+      "display_name": "Headers Table",
+      "columns": [
+        {
+          "name": "Name",
+          "title": "Name",
+          "type": "string"
+        },
+        {
+          "name": "Value",
+          "title": "Value",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
