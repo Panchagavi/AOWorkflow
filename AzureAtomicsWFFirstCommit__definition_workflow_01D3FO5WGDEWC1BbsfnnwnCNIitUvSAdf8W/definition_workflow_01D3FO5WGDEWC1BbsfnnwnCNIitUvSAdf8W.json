@@ -11,35 +11,11 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "SubscriptionID",
+          "name": "ComputerName",
           "type": "datatype.string",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.secure_string",
-        "properties": {
-          "value": "*****",
-          "scope": "input",
-          "name": "VMPassword",
-          "type": "datatype.secure_string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01DBVOJWTLIH37ClIoO8S8VxkEGBqTMn0SA",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.secure_string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Client Secret",
-          "type": "datatype.secure_string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01DB4BZINI9107IB3NzUt0nS7RYFlzcZfC1",
+        "unique_name": "variable_workflow_01DS5OBTSFMQM09q0iQMMKGPwFfAHU4AQSK",
         "object_type": "variable_workflow"
       },
       {
@@ -64,6 +40,78 @@
           "is_required": false
         },
         "unique_name": "variable_workflow_01DB4ESJGCDKE693KexWuOFLkycMaAkeQcL",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "VmName",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01DS5OHIR1ZPW0RXAhoZtTpBg0gO32JRKFs",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "StorageAccountName",
+          "type": "datatype.string",
+          "is_required": true
+        },
+        "unique_name": "variable_workflow_01DCTKI2IE1MK3w70DQQ63NexS2aLPQ0gDB",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Client Secret",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01DB4BZINI9107IB3NzUt0nS7RYFlzcZfC1",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "SubscriptionID",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "test01",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01EM4PBG7RZ8R4CT7OAiXPFxgkOBIPhKHyX",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "input",
+          "name": "VMPassword",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01DBVOJWTLIH37ClIoO8S8VxkEGBqTMn0SA",
         "object_type": "variable_workflow"
       }
     ],
@@ -121,10 +169,54 @@
         "base_type": "subworkflow",
         "properties": {
           "continue_on_failure": true,
+          "description": "Create a Resource Group",
           "display_name": "Add Resource Group",
           "input": {
             "variable_workflow_01g40N85uhikaDlRXtYNTWBpPkV7vAFb3": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
-            "variable_workflow_01g40jCpXrf4yTO5ecyDgIzwm2T7sgNQs": "36a9ef30-23df-4de3-8f3a-5a88141f7144",
+            "variable_workflow_01g40jCpXrf4yTO5ecyDgIzwm2T7sgNQs": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
+            "variable_workflow_01g4b8aOvskp82gW3aIuTVAHk3O5SBlX9": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$",
+            "variable_workflow_01g4bNFatni7n6VFNl8NCceCqifX0k4SP": "eastus",
+            "variable_workflow_01g4bcymNUK7rVORA9EsshI2nFlu2sSa9": "2019-10-01"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "target_type": "019I4OHC71FLC4FcLkbBRgzf2F9FRIbjfyf",
+            "use_workflow_target": true
+          },
+          "workflow_id": "definition_workflow_01g3zfgTb9Uvzv4kl7RmfJeKrFHuoAD9L"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01EG3SEWZPMBS0OLiA5iQ5ibiyEVD6nhK1t",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 40
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01EG3S227ZZN14dy4A7r1lEJravjkrHoHLH",
+        "name": "Add Resource Group",
+        "title": "Add Resource Group",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": true,
+          "description": "Update Operation",
+          "display_name": "Add Resource Group",
+          "input": {
+            "variable_workflow_01g40N85uhikaDlRXtYNTWBpPkV7vAFb3": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g40jCpXrf4yTO5ecyDgIzwm2T7sgNQs": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01g4b8aOvskp82gW3aIuTVAHk3O5SBlX9": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$",
             "variable_workflow_01g4bNFatni7n6VFNl8NCceCqifX0k4SP": "eastus",
             "variable_workflow_01g4bcymNUK7rVORA9EsshI2nFlu2sSa9": "2019-10-01"
@@ -180,7 +272,7 @@
             "variable_workflow_01g0uULdAY7xfPJbfreAnyN8G49OeO25K": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01g0uwZUQArQnJPNJVVwuSjxL5743Uds5": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
             "variable_workflow_01g1E38E2dOeH3hop6Da9a7Q8iIEuLsjY": "2019-10-01",
-            "variable_workflow_01g1dhSDkkZgQH2eklviGgsHu5nXUXFWg": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4BZINI9107IB3NzUt0nS7RYFlzcZfC1$"
+            "variable_workflow_01g1dhSDkkZgQH2eklviGgsHu5nXUXFWg": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
           "runtime_user": {
             "target_default": true
@@ -204,12 +296,17 @@
           "continue_on_failure": true,
           "display_name": "Add Network Security Group",
           "input": {
+            "variable_workflow_01EF31WA7YZA03q2e2onJ5UuEvO1kEVjmoQ": "NSG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01EF34AVYCMQT5ZKj0F7rJW8x8UXNAh1vn8": "*",
+            "variable_workflow_01EF36C2FGT9M5sHFE5Gm1ZndCzc32aL6oT": "*",
+            "variable_workflow_01EF3DBNNP1S27ceLdMnUOxJEgSeTvf7vvg": "*",
+            "variable_workflow_01EF3EJDX1HUC5saIt8X6axDS0mLndNgqbA": "*",
             "variable_workflow_01g1e3FOshfmXnvgrfmATBxHjq06QQ58k": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01g1e958RzD3MYFAgV3pHENbc5S23MAG4": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
             "variable_workflow_01g1eGrRTKQx5QShdlrkE1c4I9KKQR2aq": "2019-09-01",
             "variable_workflow_01g42vCJoajAIKNjZqgrWerXM75Gscuo7": "Allow",
             "variable_workflow_01g43PdVWvBxn2rTR7PDYf69kPyIvYzDm": "Inbound",
-            "variable_workflow_01g43fzW2P6jph2lTgynFEqG1JXewMcsE": 0,
+            "variable_workflow_01g43fzW2P6jph2lTgynFEqG1JXewMcsE": 109,
             "variable_workflow_01g44ntJiwLdco0nUYsp1F1aaMAht46UX": "eastus",
             "variable_workflow_01g45mkNmYL4L7KUaStq5oFuFTpDdWcf6": "*",
             "variable_workflow_01g4dDrdDrg8h8xdlD8XrdTtwP2cgfR0Y": "NSG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
@@ -224,6 +321,20 @@
             "use_workflow_target": true
           },
           "workflow_id": "definition_workflow_01g1DpvdStk9z6uUmZMzZJVV8tBj1PVnL"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01DOUH8U9JMIF3JQTmgmsbztJBF8FqOI1qP",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 200
         },
         "object_type": "definition_activity"
       },
@@ -271,14 +382,124 @@
             "variable_workflow_01g3WkFgSTd9y1GmMBSjrd3tJaqVtMzUK": "*",
             "variable_workflow_01g3WmNECO9oWOWJZxlNQvzllEUUEWle0": "*",
             "variable_workflow_01g3vLS32lZSa1RdZTti3Bxzthznu9Cyz": "2019-09-01",
-            "variable_workflow_01g3vVFyp7KijMwdSyIyBFD5rHkD53ITu": "eastus",
-            "variable_workflow_01g3vZeDAKhKMlunczYs72C85Yf72geeo": "NSGR-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
-            "variable_workflow_01g3vcsoTtxAAsqhCOdiXsJzeYLxdYRDw": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$",
+            "variable_workflow_01g3vZeDAKhKMlunczYs72C85Yf72geeo": "NSGRI-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3vcsoTtxAAsqhCOdiXsJzeYLxdYRDw": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01g3veDfyuLWKgFnuTsSectkYI9qSUahF": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
             "variable_workflow_01g3vhkZMW6HU4FScnXCKzDm3QZs5pj9W": "NSG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
             "variable_workflow_01g3w4hRcBBPkc8yHbiL4PUpjlkt2uXaB": "*",
-            "variable_workflow_01g3w9lpZ4DTkxGEqdhQHugLW1eXxgduq": 101,
+            "variable_workflow_01g3w9lpZ4DTkxGEqdhQHugLW1eXxgduq": 102,
             "variable_workflow_01g3wCnAroVN3rXhmpvxKuCKwbq7pb4M9": "Inbound",
+            "variable_workflow_01gDv6J6cAGFrrTGyc35hagHZv0YyF1rd": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "target_type": "019I4OHC71FLC4FcLkbBRgzf2F9FRIbjfyf",
+            "use_workflow_target": true
+          },
+          "workflow_id": "definition_workflow_01g3Vyt4QmWXxHEAqGsKdIPekI3JdVRPO"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01DN57MFL2LQE4SWA5Z3VZgjYg5tRgG4HRs",
+        "name": "Add Network Security Group Rule",
+        "title": "Add Network Security Group Rule",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Add Network Security Group Rule",
+          "input": {
+            "variable_workflow_01g3WO4Y0Pv0IVAtf0GeFKmoqRYisqHdb": "Deny",
+            "variable_workflow_01g3WS17tBgn5LNtkbQzgE0SL2w0noG0w": "*",
+            "variable_workflow_01g3WdqSQ1FXttxL9GDuT6y8O9nkgmc0b": "*",
+            "variable_workflow_01g3WkFgSTd9y1GmMBSjrd3tJaqVtMzUK": "*",
+            "variable_workflow_01g3WmNECO9oWOWJZxlNQvzllEUUEWle0": "*",
+            "variable_workflow_01g3vLS32lZSa1RdZTti3Bxzthznu9Cyz": "2019-09-01",
+            "variable_workflow_01g3vZeDAKhKMlunczYs72C85Yf72geeo": "NSGRID-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3vcsoTtxAAsqhCOdiXsJzeYLxdYRDw": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
+            "variable_workflow_01g3veDfyuLWKgFnuTsSectkYI9qSUahF": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3vhkZMW6HU4FScnXCKzDm3QZs5pj9W": "NSG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3w4hRcBBPkc8yHbiL4PUpjlkt2uXaB": "*",
+            "variable_workflow_01g3w9lpZ4DTkxGEqdhQHugLW1eXxgduq": 105,
+            "variable_workflow_01g3wCnAroVN3rXhmpvxKuCKwbq7pb4M9": "Inbound",
+            "variable_workflow_01gDv6J6cAGFrrTGyc35hagHZv0YyF1rd": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "target_type": "019I4OHC71FLC4FcLkbBRgzf2F9FRIbjfyf",
+            "use_workflow_target": true
+          },
+          "workflow_id": "definition_workflow_01g3Vyt4QmWXxHEAqGsKdIPekI3JdVRPO"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01DN58NHQ90EJ1y1ZDQ1EQmGhuoTIH7z3P5",
+        "name": "Add Network Security Group Rule",
+        "title": "Add Network Security Group Rule",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Add Network Security Group Rule",
+          "input": {
+            "variable_workflow_01g3WO4Y0Pv0IVAtf0GeFKmoqRYisqHdb": "Deny",
+            "variable_workflow_01g3WS17tBgn5LNtkbQzgE0SL2w0noG0w": "*",
+            "variable_workflow_01g3WdqSQ1FXttxL9GDuT6y8O9nkgmc0b": "*",
+            "variable_workflow_01g3WkFgSTd9y1GmMBSjrd3tJaqVtMzUK": "*",
+            "variable_workflow_01g3WmNECO9oWOWJZxlNQvzllEUUEWle0": "*",
+            "variable_workflow_01g3vLS32lZSa1RdZTti3Bxzthznu9Cyz": "2019-09-01",
+            "variable_workflow_01g3vZeDAKhKMlunczYs72C85Yf72geeo": "NSGROD-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3vcsoTtxAAsqhCOdiXsJzeYLxdYRDw": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
+            "variable_workflow_01g3veDfyuLWKgFnuTsSectkYI9qSUahF": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3vhkZMW6HU4FScnXCKzDm3QZs5pj9W": "NSG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3w4hRcBBPkc8yHbiL4PUpjlkt2uXaB": "*",
+            "variable_workflow_01g3w9lpZ4DTkxGEqdhQHugLW1eXxgduq": 103,
+            "variable_workflow_01g3wCnAroVN3rXhmpvxKuCKwbq7pb4M9": "Outbound",
+            "variable_workflow_01gDv6J6cAGFrrTGyc35hagHZv0YyF1rd": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "target_type": "019I4OHC71FLC4FcLkbBRgzf2F9FRIbjfyf",
+            "use_workflow_target": true
+          },
+          "workflow_id": "definition_workflow_01g3Vyt4QmWXxHEAqGsKdIPekI3JdVRPO"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01DOUI6423MK34RSkcJwTWnmLQn6j4RWYNv",
+        "name": "Add Network Security Group Rule",
+        "title": "Add Network Security Group Rule",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Add Network Security Group Rule",
+          "input": {
+            "variable_workflow_01g3WO4Y0Pv0IVAtf0GeFKmoqRYisqHdb": "Allow",
+            "variable_workflow_01g3WS17tBgn5LNtkbQzgE0SL2w0noG0w": "*",
+            "variable_workflow_01g3WdqSQ1FXttxL9GDuT6y8O9nkgmc0b": "*",
+            "variable_workflow_01g3WkFgSTd9y1GmMBSjrd3tJaqVtMzUK": "*",
+            "variable_workflow_01g3WmNECO9oWOWJZxlNQvzllEUUEWle0": "*",
+            "variable_workflow_01g3vLS32lZSa1RdZTti3Bxzthznu9Cyz": "2019-09-01",
+            "variable_workflow_01g3vZeDAKhKMlunczYs72C85Yf72geeo": "NSGROA-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3vcsoTtxAAsqhCOdiXsJzeYLxdYRDw": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
+            "variable_workflow_01g3veDfyuLWKgFnuTsSectkYI9qSUahF": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3vhkZMW6HU4FScnXCKzDm3QZs5pj9W": "NSG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g3w4hRcBBPkc8yHbiL4PUpjlkt2uXaB": "*",
+            "variable_workflow_01g3w9lpZ4DTkxGEqdhQHugLW1eXxgduq": 104,
+            "variable_workflow_01g3wCnAroVN3rXhmpvxKuCKwbq7pb4M9": "Outbound",
             "variable_workflow_01gDv6J6cAGFrrTGyc35hagHZv0YyF1rd": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
           "runtime_user": {
@@ -362,11 +583,12 @@
           "continue_on_failure": true,
           "display_name": "Add Storage Account",
           "input": {
-            "variable_workflow_01GyU3Dy05dARpGm510r3mdKM02Ni2pVD": "SA-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01EF78SR83BI85oaRrevtErriq4KtDz76Rd": "{\n\"encryption\": {\n\"services\": {\n\"file\": {\n\"keyType\": \"Account\",\n\"enabled\": true\n},\n\"blob\":{\n\"keyType\": \"Account\",\n\"enabled\": true\n}\n},\n\"keySource\": \"Microsoft.Storage\"\n}\n}",
+            "variable_workflow_01GyU3Dy05dARpGm510r3mdKM02Ni2pVD": "sa$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DCTKI2IE1MK3w70DQQ63NexS2aLPQ0gDB$",
             "variable_workflow_01GyU7OQTIONwLbpuuaAB0clYgOmPuIGe": "2019-06-01",
             "variable_workflow_01GyUabhT1PGwWprWWN7Qnyu6Q3MdDOa3": "Storage",
             "variable_workflow_01GyUcNz61fSXleTFatIfPSRAJoadlNPR": "eastus",
-            "variable_workflow_01GyUeLs25hajASsgmbs8rjYo4P1NslaH": "B1",
+            "variable_workflow_01GyUeLs25hajASsgmbs8rjYo4P1NslaH": "Standard_GRS",
             "variable_workflow_01GyUnogalVMMsT4E8GGY455CUsDFDcyq": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$",
             "variable_workflow_01GytXYaI7A6lVFFmjNO9nHyGfiR3htDr": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01GytzUfNHNb3p6jzVPVJmHwQpMasUFwz": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$"
@@ -384,24 +606,24 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01DB4155TLOC12ROEnJtuXNW3kzUL2do0we",
+        "unique_name": "definition_activity_01DOT4EQ9VD9J1VZVSUpgQ4JMU2Xdy7hI3x",
         "name": "Get Storage Account Information for Resource Group",
         "title": "Get Storage Account Information for Resource Group",
         "type": "workflow.atomic_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Get Storage Account Information for Resource Group",
           "input": {
             "variable_workflow_01GXR0HKaKJDftduVfFv8g05pOYeU0kZa": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01GyZfaMbXEH7MKYDZD8Hfy7OVtZ7ynHu": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
-            "variable_workflow_01g1jxP5ouloSFq79gPlbF0I1ziJTHOQ1": "2019-08-01",
+            "variable_workflow_01g1jxP5ouloSFq79gPlbF0I1ziJTHOQ1": "2019-06-01",
             "variable_workflow_01geFVY7l74Xtmv0xunq7LfJb5UbWJRmP": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
           "runtime_user": {
             "target_default": true
           },
-          "skip_execution": true,
+          "skip_execution": false,
           "target": {
             "target_type": "019I4OHC71FLC4FcLkbBRgzf2F9FRIbjfyf",
             "use_workflow_target": true
@@ -441,6 +663,20 @@
         "object_type": "definition_activity"
       },
       {
+        "unique_name": "definition_activity_01EATV2BMR34P0EI1KIkhQiTMaD2aEHqcm7",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 30
+        },
+        "object_type": "definition_activity"
+      },
+      {
         "unique_name": "definition_activity_01DB3WV8FLLMC64YtoqpZv7nGzhS8hAmPvz",
         "name": "Add Subnet",
         "title": "Add Subnet",
@@ -455,7 +691,7 @@
             "variable_workflow_01g1vGDoaU8sqfIMsiTp4TlwwFmBg4c1I": "VNET-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
             "variable_workflow_01g1vInpropNtWuQfLnZXVcmzO0yx4p2o": "SUBNET-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
             "variable_workflow_01g1vdaA1QKepTo4kDJrQ4NYZBvHMwTe8": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
-            "variable_workflow_01g1xAO31amZoMF51JTecSjtT5UfcIJKO": "*",
+            "variable_workflow_01g1xAO31amZoMF51JTecSjtT5UfcIJKO": "10.0.0.0/16",
             "variable_workflow_01geORwmb0I08uGv5zWsFs53xq2rgMgSM": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
           "runtime_user": {
@@ -512,7 +748,7 @@
           "input": {
             "variable_workflow_01g3VLexfsakmen58PSNkmSHF92xzVqsa": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01g3VTgZ91VxVXsP8dp78o0yHCS0kjWQD": "VNG",
-            "variable_workflow_01g3Vo4L3aXg8P0fTRKrVK1Q0gTJo2EK4": "saaitha-resoucegrp",
+            "variable_workflow_01g3Vo4L3aXg8P0fTRKrVK1Q0gTJo2EK4": "RGTest",
             "variable_workflow_01g3Vwmp08C7AVPfl9y4sSbthYkGHDXY1": "2019-09-01",
             "variable_workflow_01gellc0teQsoZ26LtbHwYDdJlVX7Y6Ro": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
@@ -535,13 +771,13 @@
         "type": "workflow.atomic_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "List Virtual Network Gateways",
           "input": {
             "variable_workflow_01AVLLXGGX5ES0bLWUhUxncfFXapPc5dXSS": "2019-09-01",
             "variable_workflow_01AVLLXGGXCD5307sHpSZK0VSWUCPDVW1GR": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$",
             "variable_workflow_01AVLLXGGXEDR0Mly1zIVVplHV8imJm0PLL": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
-            "variable_workflow_01AVLLXGGXG535FaUUZlsqWXkD5hrcEgsA3": "saaitha-resoucegrp"
+            "variable_workflow_01AVLLXGGXG535FaUUZlsqWXkD5hrcEgsA3": "RGTest"
           },
           "runtime_user": {
             "target_default": true
@@ -592,12 +828,12 @@
         "type": "workflow.atomic_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Get Network Configuration",
           "input": {
             "variable_workflow_01g0rL1tL0x9ncIoonsTcKehsBTEOCxoV": "NI",
             "variable_workflow_01g0re09laGl1vQ10KuO5wf1ZtyVePefW": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
-            "variable_workflow_01g0riCfh7gwwAumMzrddtmnSxsIoTzPo": "saaitha-resoucegrp",
+            "variable_workflow_01g0riCfh7gwwAumMzrddtmnSxsIoTzPo": "RGTest",
             "variable_workflow_01g3OnIWz5Tc3Nj44RGLnXqcBcrhRISLG": "2019-09-01",
             "variable_workflow_01gEYozL5OOhglViBVo2yClFmPAaePxDe": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
@@ -620,23 +856,23 @@
         "type": "workflow.atomic_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Add Virtual Machine",
           "input": {
             "variable_workflow_01g16wjwUNGDwmj9GwyGzmKFSNVeD7ObK": "2019-03-01",
             "variable_workflow_01g172UMSrw6INKQyse4U15EeGaq90foQ": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
-            "variable_workflow_01g176GSV4FWNUFJ1uqRmiyN5lEHo3g33": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
-            "variable_workflow_01g17AxiKTWDpCnCmPLH8ZMNeGAd6zR8u": "VM-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g176GSV4FWNUFJ1uqRmiyN5lEHo3g33": "RGTest",
+            "variable_workflow_01g17AxiKTWDpCnCmPLH8ZMNeGAd6zR8u": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DS5OHIR1ZPW0RXAhoZtTpBg0gO32JRKFs$",
             "variable_workflow_01g17Ym2eYnwmf6KGojfQ6K6GiaJ9qkQl": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$",
-            "variable_workflow_01g18YHB7MpgP52AOoblHPzhuHCbi5Wvo": "10",
+            "variable_workflow_01g18YHB7MpgP52AOoblHPzhuHCbi5Wvo": "Standard_D1_v2",
             "variable_workflow_01g18uUuNoAEtrWGd5l6KE58WvhCnwVcf": "eastus",
             "variable_workflow_01g19ABcj2NKb9fqfreuuUFKiIWCKP9nB": "2016-Datacenter",
             "variable_workflow_01g19Hi60XC2g2wSLRhiUyiRhTHqCtabh": "latest",
             "variable_workflow_01g19PL4hxvcJjnxNLlQNI4aRhYyNvDsJ": "WindowsServer",
-            "variable_workflow_01g19Re1DXvlg09NHZoOdJpoakXgRCPBF": "admin",
+            "variable_workflow_01g19Re1DXvlg09NHZoOdJpoakXgRCPBF": "adminuser",
             "variable_workflow_01g19ZVgK5CGK3wmcH9gxlvY1VXY8XY6D": "NI",
             "variable_workflow_01g19cQpvy27nkJ8pVLpo3zjIUGAru2pY": "MicrosoftWindowsServer",
-            "variable_workflow_01g19s4qxWeT9de2GzlpEyWzgsJ3Bmht3": "VM-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g19s4qxWeT9de2GzlpEyWzgsJ3Bmht3": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DS5OBTSFMQM09q0iQMMKGPwFfAHU4AQSK$",
             "variable_workflow_01g19tx4z9sucYqaBgyNiycK6ENhqmpcM": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DBVOJWTLIH37ClIoO8S8VxkEGBqTMn0SA$",
             "variable_workflow_01g1A4BjdkmcUWyMNXmTOXIisfAPdzXWs": true
           },
@@ -653,18 +889,32 @@
         "object_type": "definition_activity"
       },
       {
+        "unique_name": "definition_activity_01EAYUEK9U2KH4CIGxAjSqlTpuzVOMoR4ES",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 30
+        },
+        "object_type": "definition_activity"
+      },
+      {
         "unique_name": "definition_activity_01DB418P50P1L48vecMg2yKVqarHD6ijRH5",
         "name": "Get Virtual Machine Details",
         "title": "Get Virtual Machine Details",
         "type": "workflow.atomic_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "Get Virtual Machine Details",
           "input": {
             "variable_workflow_01Gvm8vp3kYD63SORF97E5WzQ76Qpg3t2": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
-            "variable_workflow_01GvmbNXnyXh9uQey4qdgE0KlLKJLvImM": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
-            "variable_workflow_01GvmdLMuWVUoqOYr4KjMWVpx5KIonRrj": "VM-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01GvmbNXnyXh9uQey4qdgE0KlLKJLvImM": "RGTest",
+            "variable_workflow_01GvmdLMuWVUoqOYr4KjMWVpx5KIonRrj": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DS5OHIR1ZPW0RXAhoZtTpBg0gO32JRKFs$",
             "variable_workflow_01g1iTAEVYALkCiuPazCeM4Um0JH38JTp": "2019-03-01",
             "variable_workflow_01gEXBEYEGRoHFDndriIb3Hh9IxNeYVh2": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
@@ -687,12 +937,12 @@
         "type": "workflow.atomic_workflow",
         "base_type": "subworkflow",
         "properties": {
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "display_name": "List Backup Jobs",
           "input": {
             "variable_workflow_01g0XQ9t0ZyksH15QOjys9Ul2VbrDmNR8": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
-            "variable_workflow_01g0XVNAmFuNQb9seE1oVorqk9YG4IpzE": "vaultao",
-            "variable_workflow_01g0XsbU1RXcB141beuwjhjaqf0Gv1QP2": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g0XVNAmFuNQb9seE1oVorqk9YG4IpzE": "AO-Vault",
+            "variable_workflow_01g0XsbU1RXcB141beuwjhjaqf0Gv1QP2": "RGTest",
             "variable_workflow_01g1FpoCCVxF2HHTGz1aswGcXMY4GOUt3": "2019-05-13",
             "variable_workflow_01g1FtL3zNlQZ0DSFyOCWIeNhLWWhzOcU": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$"
           },
@@ -735,26 +985,26 @@
     }
   },
   "atomic_workflows": [
-    "definition_workflow_01g0uDl6v3AjLe9OmikHJrAJ9tcmJj0Oa",
-    "definition_workflow_01AVLLWS473QO1INgGyDUXoqvgvcK2AqZ8h",
-    "definition_workflow_01g0Wbjk84stz14z0U7O0A2Vz2cwg2lV2",
-    "definition_workflow_01GXQivLwfDyc2nrj2xPLc6nqh7hlbibr",
-    "definition_workflow_01GyQHp8a0nvqIz5GDmNum6L8alMdmCkb",
-    "definition_workflow_01g1NDG7ptiCuJZgYwKpBBMpN9uroHlk4",
-    "definition_workflow_01g1VOcz1baU7tr1x6MR3nXnFlHTOKzss",
-    "definition_workflow_01g3VBEcx8uDnY6gG5xtcN0oatprgiY4h",
     "definition_workflow_01g3Vyt4QmWXxHEAqGsKdIPekI3JdVRPO",
-    "definition_workflow_01g0t8HjVHcnQ2QAop5Dc9pVrSMzYZfjZ",
-    "definition_workflow_01g1DpvdStk9z6uUmZMzZJVV8tBj1PVnL",
-    "definition_workflow_01g16Ob0B9JZ38TLiNwyOjUIukvhI2HOx",
-    "definition_workflow_01GvLZkiw2cnJeRDQJqwh27gQE77iPBmH",
-    "definition_workflow_01g1m0GL7CgBJmPMJ6K1QXGZ6fyU8koxk",
-    "definition_workflow_01g3zfgTb9Uvzv4kl7RmfJeKrFHuoAD9L",
-    "definition_workflow_01CXX70AXRVI11FTeYBpGjJDi5hk5mxsk95",
     "definition_workflow_01g0RbGzzP486vUS9TJrKDGOh2kWnaUV5",
+    "definition_workflow_01g1VOcz1baU7tr1x6MR3nXnFlHTOKzss",
     "definition_workflow_01g1wpXca6PpEurd0mMBI0o3cD6DznZdJ",
-    "definition_workflow_015L1JYAHK5C23xmD6hxWJ251ku4N6u6Dm0",
+    "definition_workflow_01GyQHp8a0nvqIz5GDmNum6L8alMdmCkb",
+    "definition_workflow_01GXQivLwfDyc2nrj2xPLc6nqh7hlbibr",
+    "definition_workflow_01g0t8HjVHcnQ2QAop5Dc9pVrSMzYZfjZ",
+    "definition_workflow_01g3VBEcx8uDnY6gG5xtcN0oatprgiY4h",
     "definition_workflow_01GZD6T4Yf4uuTVQEh7iaOrFlScGeR7YN",
-    "definition_workflow_01GZteT1kUGOxgOjSblFa74MziMAalUAz"
+    "definition_workflow_01GvLZkiw2cnJeRDQJqwh27gQE77iPBmH",
+    "definition_workflow_01g0uDl6v3AjLe9OmikHJrAJ9tcmJj0Oa",
+    "definition_workflow_01g0Wbjk84stz14z0U7O0A2Vz2cwg2lV2",
+    "definition_workflow_01g1m0GL7CgBJmPMJ6K1QXGZ6fyU8koxk",
+    "definition_workflow_01AVLLWS473QO1INgGyDUXoqvgvcK2AqZ8h",
+    "definition_workflow_015L1JYAHK5C23xmD6hxWJ251ku4N6u6Dm0",
+    "definition_workflow_01GZteT1kUGOxgOjSblFa74MziMAalUAz",
+    "definition_workflow_01g3zfgTb9Uvzv4kl7RmfJeKrFHuoAD9L",
+    "definition_workflow_01g16Ob0B9JZ38TLiNwyOjUIukvhI2HOx",
+    "definition_workflow_01g1DpvdStk9z6uUmZMzZJVV8tBj1PVnL",
+    "definition_workflow_01CXX70AXRVI11FTeYBpGjJDi5hk5mxsk95",
+    "definition_workflow_01g1NDG7ptiCuJZgYwKpBBMpN9uroHlk4"
   ]
 }
