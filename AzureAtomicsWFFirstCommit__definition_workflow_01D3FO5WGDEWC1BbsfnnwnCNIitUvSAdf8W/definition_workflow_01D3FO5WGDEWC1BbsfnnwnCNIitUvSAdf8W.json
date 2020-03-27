@@ -11,6 +11,30 @@
         "properties": {
           "value": "",
           "scope": "input",
+          "name": "ClientID",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01DB4EKBBSC3Y7c1Ed29K5ztK2sVDRGFEJB",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Client Secret",
+          "type": "datatype.secure_string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01DB4BZINI9107IB3NzUt0nS7RYFlzcZfC1",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
           "name": "ComputerName",
           "type": "datatype.string",
           "is_required": false
@@ -23,11 +47,11 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "ClientID",
+          "name": "TenantID",
           "type": "datatype.string",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01DB4EKBBSC3Y7c1Ed29K5ztK2sVDRGFEJB",
+        "unique_name": "variable_workflow_01DB4ESJGCDKE693KexWuOFLkycMaAkeQcL",
         "object_type": "variable_workflow"
       },
       {
@@ -35,11 +59,11 @@
         "properties": {
           "value": "",
           "scope": "input",
-          "name": "TenantID",
+          "name": "SubscriptionID",
           "type": "datatype.string",
           "is_required": false
         },
-        "unique_name": "variable_workflow_01DB4ESJGCDKE693KexWuOFLkycMaAkeQcL",
+        "unique_name": "variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ",
         "object_type": "variable_workflow"
       },
       {
@@ -64,30 +88,6 @@
           "is_required": true
         },
         "unique_name": "variable_workflow_01DCTKI2IE1MK3w70DQQ63NexS2aLPQ0gDB",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.secure_string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Client Secret",
-          "type": "datatype.secure_string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01DB4BZINI9107IB3NzUt0nS7RYFlzcZfC1",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "SubscriptionID",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ",
         "object_type": "variable_workflow"
       },
       {
@@ -215,7 +215,7 @@
           "description": "Update Operation",
           "display_name": "Add Resource Group",
           "input": {
-            "variable_workflow_01g40N85uhikaDlRXtYNTWBpPkV7vAFb3": "RG-$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.output.instance_id$",
+            "variable_workflow_01g40N85uhikaDlRXtYNTWBpPkV7vAFb3": "RGTest",
             "variable_workflow_01g40jCpXrf4yTO5ecyDgIzwm2T7sgNQs": "$workflow.definition_workflow_01D3FO5WGDEWC1BbsfnnwnCNIitUvSAdf8W.input.variable_workflow_01DB4F0NCF1OO6yXqh8vG9ZLGhQpm0fdjjZ$",
             "variable_workflow_01g4b8aOvskp82gW3aIuTVAHk3O5SBlX9": "$activity.definition_activity_01DB4AJP7O7VA6BdbFgyfgpu4TZBITyrsjs.output.variable_workflow_01CXX70AIOFOH7ebI5zDp8cPKBsQUck68W9$",
             "variable_workflow_01g4bNFatni7n6VFNl8NCceCqifX0k4SP": "eastus",
@@ -230,6 +230,20 @@
             "use_workflow_target": true
           },
           "workflow_id": "definition_workflow_01g3zfgTb9Uvzv4kl7RmfJeKrFHuoAD9L"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01EOM5MCGWZWH0YFkZdOawbNjIutPKj7LET",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 40
         },
         "object_type": "definition_activity"
       },
@@ -986,25 +1000,25 @@
   },
   "atomic_workflows": [
     "definition_workflow_01g3Vyt4QmWXxHEAqGsKdIPekI3JdVRPO",
-    "definition_workflow_01g0RbGzzP486vUS9TJrKDGOh2kWnaUV5",
-    "definition_workflow_01g1VOcz1baU7tr1x6MR3nXnFlHTOKzss",
-    "definition_workflow_01g1wpXca6PpEurd0mMBI0o3cD6DznZdJ",
-    "definition_workflow_01GyQHp8a0nvqIz5GDmNum6L8alMdmCkb",
-    "definition_workflow_01GXQivLwfDyc2nrj2xPLc6nqh7hlbibr",
-    "definition_workflow_01g0t8HjVHcnQ2QAop5Dc9pVrSMzYZfjZ",
     "definition_workflow_01g3VBEcx8uDnY6gG5xtcN0oatprgiY4h",
-    "definition_workflow_01GZD6T4Yf4uuTVQEh7iaOrFlScGeR7YN",
-    "definition_workflow_01GvLZkiw2cnJeRDQJqwh27gQE77iPBmH",
-    "definition_workflow_01g0uDl6v3AjLe9OmikHJrAJ9tcmJj0Oa",
-    "definition_workflow_01g0Wbjk84stz14z0U7O0A2Vz2cwg2lV2",
-    "definition_workflow_01g1m0GL7CgBJmPMJ6K1QXGZ6fyU8koxk",
-    "definition_workflow_01AVLLWS473QO1INgGyDUXoqvgvcK2AqZ8h",
-    "definition_workflow_015L1JYAHK5C23xmD6hxWJ251ku4N6u6Dm0",
-    "definition_workflow_01GZteT1kUGOxgOjSblFa74MziMAalUAz",
-    "definition_workflow_01g3zfgTb9Uvzv4kl7RmfJeKrFHuoAD9L",
     "definition_workflow_01g16Ob0B9JZ38TLiNwyOjUIukvhI2HOx",
-    "definition_workflow_01g1DpvdStk9z6uUmZMzZJVV8tBj1PVnL",
+    "definition_workflow_01GXQivLwfDyc2nrj2xPLc6nqh7hlbibr",
     "definition_workflow_01CXX70AXRVI11FTeYBpGjJDi5hk5mxsk95",
-    "definition_workflow_01g1NDG7ptiCuJZgYwKpBBMpN9uroHlk4"
+    "definition_workflow_01AVLLWS473QO1INgGyDUXoqvgvcK2AqZ8h",
+    "definition_workflow_01g0uDl6v3AjLe9OmikHJrAJ9tcmJj0Oa",
+    "definition_workflow_01g1wpXca6PpEurd0mMBI0o3cD6DznZdJ",
+    "definition_workflow_01GvLZkiw2cnJeRDQJqwh27gQE77iPBmH",
+    "definition_workflow_01g1m0GL7CgBJmPMJ6K1QXGZ6fyU8koxk",
+    "definition_workflow_01g1DpvdStk9z6uUmZMzZJVV8tBj1PVnL",
+    "definition_workflow_01g0Wbjk84stz14z0U7O0A2Vz2cwg2lV2",
+    "definition_workflow_01g0RbGzzP486vUS9TJrKDGOh2kWnaUV5",
+    "definition_workflow_01g3zfgTb9Uvzv4kl7RmfJeKrFHuoAD9L",
+    "definition_workflow_01GyQHp8a0nvqIz5GDmNum6L8alMdmCkb",
+    "definition_workflow_01g1VOcz1baU7tr1x6MR3nXnFlHTOKzss",
+    "definition_workflow_01g1NDG7ptiCuJZgYwKpBBMpN9uroHlk4",
+    "definition_workflow_01g0t8HjVHcnQ2QAop5Dc9pVrSMzYZfjZ",
+    "definition_workflow_015L1JYAHK5C23xmD6hxWJ251ku4N6u6Dm0",
+    "definition_workflow_01GZD6T4Yf4uuTVQEh7iaOrFlScGeR7YN",
+    "definition_workflow_01GZteT1kUGOxgOjSblFa74MziMAalUAz"
   ]
 }
